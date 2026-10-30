@@ -1,0 +1,11 @@
+[client]
+# 隐藏右上角 Deploy 与三横线菜单，避免遮挡语言切换
+toolbarMode = "viewer"
+showSidebarNavigation = false
+
+[theme]
+base = "light"
+primaryColor = "#EA580C"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#EFF6FF"
+textColor = "#1F2937"

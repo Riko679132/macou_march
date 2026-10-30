@@ -1,0 +1,8 @@
+# macau_eco_travel · API 服务依赖（本地与云端一致）
+fastapi>=0.110
+uvicorn[standard]>=0.29
+openai>=1.30
+requests>=2.31
+beautifulsoup4>=4.12
+PyYAML>=6.0
+duckduckgo-search>=8.0

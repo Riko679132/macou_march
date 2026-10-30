@@ -1,0 +1,17 @@
+# tools/.venv 专用依赖 —— 与根目录 requirements.txt 严格分离
+#
+# 为什么分开：CDP 下载链依赖 playwright（自带浏览器驱动 + campus-paper-fetch 的
+# 常驻会话），PDF 复核依赖 pypdf；这些库与 scripts/ 下的 requests/pdfplumber
+# 混装容易在 Windows 上撞 DLL。根 .venv 只服务 scripts/ 与 _wordgrid/pdf_to_text。
+#
+# 安装：
+#   tools\.venv\Scripts\pip.exe install -r requirements-tools.txt
+#
+# 运行归属：
+#   tools/.venv  → fetch_sd_cdp.py / fetch_pdf_cdp.py / verify_pdfs.py
+#   根 .venv     → 其余全部（fetch_unpaywall_one.py 属根，见其 docstring）
+
+playwright
+pypdf
+fonttools
+campus-paper-fetch

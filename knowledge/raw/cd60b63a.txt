@@ -1,0 +1,151 @@
+# https://www.customs.gov.mo/cn/notice_passengers_item2.html
+# 監管攜帶現金和無記名可轉讓票據出入境
+
+);
+})
+function bindAppNavEvents() {
+ // 先解綁之前的事件，避免重複綁定
+ $('.aNav_first_drop').off('click');
+ $('.aNav_second_drop').off('click');
+ $('.appnav_first_top').off('click');
+ $('.appnav_second_top').off('click');
+ 
+ // 綁定事件
+ $('.aNav_first_drop').click(function(e){
+ let self = $(this);
+ let $parentItem = self.parents('.appnav_first_item');
+ let $secondList = $parentItem.find('.appnav_second_list');
+ self.parents('.appnav_first_top').toggleClass('active');
+ 
+ let isCurrentlyOpen = $secondList.is(':visible') || $parentItem.find('.aNav_first_drop').hasClass('open');
+
+ $('.appnav_first_item').not($parentItem).each(function(){
+ $(this).find('.appnav_first_top').removeClass('active');
+ $(this).find('.aNav_first_drop').removeClass('open');
+ $(this).find('.appnav_second_list').slideUp();
+ });
+ 
+ $('.aNav_first_drop').not(self).removeClass('open');
+ self.toggleClass('open');
+
+ if (isCurrentlyOpen) {
+ $secondList.slideUp();
+ } else {
+ $secondList.slideDown();
+ }
+
+ e.stopPropagation();
+ });
+ 
+ $('.aNav_second_drop').click(function(e){
+ let self = $(this);
+ let $parentItem = self.parents('.appnav_second_item');
+ let $thirdList = $parentItem.find('.appnav_third_list');
+ self.parents('.appnav_second_top').toggleClass('active');
+
+ let isCurrentlyOpen = $thirdList.is(':visible') || $parentItem.find('.aNav_second_drop').hasClass('open');
+
+ $parentItem.siblings('.appnav_second_item').each(function(){
+ $(this).find('.aNav_second_drop').removeClass('open');
+ $(this).find('.appnav_second_top').removeClass('active');
+ $(this).find('.appnav_third_list').slideUp();
+ });
+
+ $parentItem.siblings('.appnav_second_item').find('.aNav_second_drop').removeClass('open');
+
+ self.toggleClass('open');
+ if (isCurrentlyOpen) {
+ $thirdList.slideUp();
+ } else {
+ $thirdList.slideDown();
+ }
+
+ e.stopPropagation();
+ });
+
+ $('.appnav_first_top').click(function(e){
+ var a = $(this).find('a')[0];
+ var aNav_first_dropBtn = $(this).find('.aNav_first_drop')[0];
+ if (a && a.href && !aNav_first_dropBtn) {
+ a.click();
+ } else {
+ $(this).find('.aNav_first_drop').click();
+ }
+ });
+
+ $('.appnav_first_top a').click(function(e){
+ const self = $(this);
+ const $parentItem = self.parents('.appnav_first_item');
+ const hasThisChildren=$parentItem.find('.appnav_second_list')[0];
+ console.log(hasThisChildren);
+ if(hasThisChildren){
+ e.preventDefault();
+ }
+ });
+
+ $('.appnav_second_top a').click(function(e){
+ const self = $(this);
+ const $parentItem = self.parents('.appnav_second_item');
+ const hasThisChildren=$parentItem.find('.appnav_third_list')[0];
+ console.log(hasThisChildren);
+ if(hasThisChildren){
+ e.preventDefault();
+ }
+ });
+
+ $('.appnav_second_top').click(function(e){
+ var a = $(this).find('a')[0];
+ var aNav_second_dropBtn = $(this).find('.aNav_second_drop')[0];
+ if (a && a.href && !aNav_second_dropBtn) {
+ a.click();
+ } else {
+ $(this).find('.aNav_second_drop').click();
+ }
+ });
+}
+-
+監管攜帶現金和無記名可轉讓票據出入境
+概述
+為預防和打擊清洗黑錢及資助恐怖主義活動，維護澳門特區經濟體系的安全穩定，立法會已細則性表決並通過
+第6/2017號法律《監管攜帶現金和無記名可轉讓票據出入境》
+，該法律於2017年11日1日起生效，並於2017年6月12日第24期第1組《澳門特別行政區公報》刊登及公布。
+根據法律規定，入境人士攜帶總值為澳門元
+十二萬元
+或以上的現金或
+無記名可轉讓票據
+，例如
+旅行支票
+、
+支票
+、
+匯票
+、
+付款委託書
+、
+本票等
+，應向海關人員申報，並填寫申報書及選擇
+紅色通道
+通關；出境人士如被海關人員查問，亦應如實作出申報，否則可被科處澳門元
+一千元至五十萬元的罰款
+。而中途短暫停留澳門特區的過境旅客則無須作出申報。申報制度的實施，不會限制、阻礙或禁止合法的資金進出澳門。法律生效後，出入境人士只須遵照有關規定作出申報。
+該法律於2017年11月1日起生效，實施至今運作暢順。為持續致力推動現代化的便捷通關措施，並配合澳門特區政府電子政務的發展，澳門海關於2021年11月5日推出攜帶現金和無記名可轉讓票據出入境網上電子申報平台服務，為旅客提供更便捷的電子化公共服務。
+因應新措施，海關將推出一系列的推廣及宣傳，務求讓旅客及居民充分獲取資訊，確保法律有效執行。任何人士如有疑問，歡迎致電海關熱線查詢，電話：2896 5001。
+相關法律及行政長官批示
+下載申報書
+申報書下載
+(
+只需列印首頁便可
+)
+申報書範本
+申報書範本 (款項屬聲明人所有)
+申報書範本 (款項屬第三者所有)
+網上電子申報平台登入
+透過手機或電腦，掃描二維碼或以網址登入：
+二維碼：
+網址：
+https://eservice.customs.gov.mo/eDCBNI
+常見問題
+諮詢奉告
+宣傳資料
+宣傳品
+宣傳短片

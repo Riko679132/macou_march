@@ -1,0 +1,5 @@
+# 测试语料 —— 待替换为正式 LCA 数据库来源（如 Agribalyse / ecoinvent / 国家发改委公布值）
+# 格式：成分名: 数值  （单位 kg CO2e/kg）
+饼干: 1.5 kg CO2e/kg
+猪肉: 12.0 kg CO2e/kg
+玻璃: 1.2 kg CO2e/kg

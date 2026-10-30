@@ -1,0 +1,2935 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>入境/出境申報</title>
+<link rel="stylesheet" type="text/css" href="/theme/standard.css"></link>
+<style type="text/css">
+body:lang(zh-hant) {
+    font-family: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", "Microsoft YaHei", sans-serif;
+}
+body:lang(zh-hans) {
+    font-family: -apple-system, BlinkMacSystemFont, "Microsoft YaHei","Microsoft JhengHei", "PingFang TC", sans-serif;
+}
+.fontDiv{
+    color: #232323;
+}
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+.container_width{
+    max-width: 1440px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+/* 漸變色字體 */
+.gradient-text {
+  background: linear-gradient(to right, #0071C0, #00893B);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+/* 子頁面兩欄佈局 */
+.dbcolumn-felx-layout{
+   width: 100%;
+}
+.dbcolumn-left-layout{
+   width: 25%;
+   min-width: 350px;
+   flex-shrink: 0;
+}
+.dbcolumn-right-layout{
+    width: 75%;
+}
+/* 子頁面兩欄佈局 */
+
+@media only screen and (max-width: 1648px) {
+    .container_width{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .container_width{
+    width: 96%;
+    margin: 0 auto;
+    }
+}
+/* 通用側邊藍色文字框 */
+.common-blue-box{
+    box-sizing: border-box;
+    padding: 20px 10px;
+    border: 1px solid #0071C0;
+    border-radius: 3px;
+    border-left: 6px solid #0071C0;
+}
+@media only screen and (max-width: 768px) {
+    .container_width{
+    width: 96% !important;
+    margin: 0 auto;
+    }
+   .dbcolumn-flex-layout{
+    flex-direction: column;
+   }
+   .dbcolumn-left-layout,.dbcolumn-right-layout{
+     width: 100%;
+     padding-bottom: 30px;
+     min-width: unset;
+   }
+}
+header {
+    width: 100%
+}
+.no-scroll{
+    overflow: hidden;
+    height: 100%;
+}
+
+/* 無障礙導航頭 */
+.tabmain-nav-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid #e5e7eb;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    box-sizing: border-box;
+    background-color: #fff;
+    color: #232323;
+    font-weight: bold;
+    z-index: -10;
+}
+
+.tabmain-nav-item:focus {
+    z-index: 100;
+}
+
+.header-container {
+    width: 100%;
+    background-color: #fff;
+    box-shadow:0px 0px 8px rgba(0,0,0,0.5);
+}
+
+.head-top {
+    padding:15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+}
+
+.webIcon {
+    max-width: 248px;
+    min-width: 248px;
+    flex:1;
+    flex-shrink: 0;
+}
+
+.webIcon>img {
+    width: 100%;
+    display: block;
+}
+
+.webIcon>img.appLogo {
+    display: none;
+}
+
+.top-fn {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 30px;
+}
+
+.outLink-list {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+}
+.outLink-item.show_qr{
+    background-color: #fff;
+    border: 0;
+}
+.outLink-item {
+    margin: 0 10px;
+    width: 32px;
+}
+
+.outLink-item>img {
+    width: 100%;
+    display: block;
+}
+
+.fontSizeChange {
+    margin: 0 10px;
+    user-select: none;
+}
+
+.fontSizeChange>button {
+    color: #6C6C6C;
+    font-weight: 400;
+    margin: 8px;
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+}
+
+.fontSizeChange>button:hover {
+    color: #0071C0;
+}
+
+.fontSize_less {
+    font-size: 16px;
+}
+
+.fontSize_mid {
+    font-size: 18px;
+}
+
+.fontSize_large {
+    font-size: 20px;
+}
+
+.fontSizeChange>button.text_selected {
+    color: #0071C0;
+}
+
+.langChange {
+    margin: 0 10px;
+}
+
+.langChange>a {
+    margin: 0 8px;
+    color: #6C6C6C;
+    font-weight: 500;
+    position: relative;
+}
+
+.langChange>a:hover {
+    color: #0071C0;
+}
+
+.langChange>a:nth-child(2) {
+    border: 1px solid #D9D9D9;
+    border-width: 0 1px;
+    padding: 0 12px;
+}
+
+.langChange>a.text_selected {
+    color: #0071C0;
+}
+
+.top-search {
+    margin: 0 10px;
+    position: relative;
+}
+
+#top-search-ipt {
+    display: block;
+    outline: 0;
+    border: 1px solid #DEDEDE;
+    border-radius: 50px;
+    padding: 4px 50px 4px 20px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+#top-search-ipt:focus-within {
+    border-color: #0071C0;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.search-ipt-icon {
+    width: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 0;
+    outline: 0;
+    background-color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.search-ipt-icon>img {
+    width: 100%;
+    display: block;
+}
+
+#appmenu-btn {
+    width: 40px;
+    display: none;
+    background-color: #fff;
+    outline: none;
+    border: 0;
+}
+
+#appmenu-btn>img {
+    width: 100%;
+    display: block;
+}
+
+#appmenu-btn>img.appmenu-close-icon {
+    display: none;
+}
+
+.head-nav {
+    width: 100%;
+    background: linear-gradient(90deg, rgba(0, 113, 192, 1), rgba(0, 137, 59, 1));
+}
+/* 導航欄 新版樣式 */
+
+.nav_menu_new {
+    max-width: 1648px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.nav_first_item {
+    position: relative;
+    flex-grow: 1;
+    text-align: center;
+    transition: all .3s ease;
+}
+
+.nav_first_item_new {
+    /* position: relative; */
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.nav_menu_loading{
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px 0;
+    height: 54px;
+    box-sizing: border-box;
+}
+
+.nav_first_item_new:hover {
+    background-color: #005692;
+}
+
+.nav_first_item_new:hover>a {
+    color: #57E275;
+}
+
+.nav_first_item_new.active{
+    background-color: #005692;
+}
+.nav_first_item_new.active>a{
+    color: #57E275;
+}
+
+.nav_first_item_new:last-child>a {
+    border-right: none;
+}
+
+
+.nav_first_item_new>a {
+    color: #fff;
+    font-size: 1.125rem;
+    height: 100%;
+    padding: 5px 18px;
+    box-sizing: border-box;
+    display: block;
+    cursor: pointer;
+    border-right: 1px solid #fff;
+}
+
+.nav_second_list {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    /* background-color: #1159A7; */
+    /* display: none; */
+    box-sizing: border-box;
+    height: 0;
+    padding-right: 280px;
+    min-width: 560px;
+    text-align: center;
+    /* transition: all .3s ease; */
+}
+
+.nav_second_list_new {
+    overflow: scroll;
+    z-index: -10;
+    position: absolute;
+    /* left: 0; */
+    inset:auto 0;
+    margin: auto;
+    /* width: fit-content; */
+    transform: translateY(-100%);
+    /* transition: all .3s ease; */
+    /* background-color: #1159A7; */
+    /* display: none; */
+    box-sizing: border-box;
+    /* min-width: 100%; */
+    max-width: 1440px;
+    /* width: 1440px; */
+    max-height: calc(100svh - 200px);
+    /* 隱藏滾動條↓ */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.nav_second_container {
+    width: 100%;
+    margin: 0 auto;
+    transition: all 0.5s ease-out;
+    /* display: grid; */
+    column-count: 3;
+    box-sizing: border-box;
+    /* grid-template-columns: repeat(4, 1fr); */
+    flex-wrap: wrap;
+    column-gap: 20px;
+    /* min-height: 300px; */
+    background: #1159A7;
+    padding: 20px;
+}
+/* 
+.nav_second_list_new.active>.nav_second_container {
+    display: block;
+    transform: translateY(0);
+} */
+.nav_second_list_new.active {
+    transform: translateY(0);
+}
+.transitionStyle {
+    transition: all .3s ease;
+}
+
+.nav_first_item:focus-within .nav_second_list {
+    /* display: block; */
+    max-height: 1000px;
+}
+
+.nav_first_item:hover>.nav_second_list {
+    max-height: 1000px;
+    /* display: block; */
+}
+
+.nav_second_item {
+    /* background-color: #1159A7; */
+    /* width: calc(100% / 7); */
+    break-inside: avoid;
+    text-align: left;
+    position: relative;
+    transition: all .3s ease;
+    padding-left: 10px;
+}
+
+/* .nav_second_item:hover{
+    background-color: #0E4B8D;
+} */
+.nav_second_item>a {
+    height: calc(2rem * 2);
+    padding: 10px;
+    color: #fff;
+    font-weight: 500;
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+}
+.isPt{
+    padding: 2px 25px !important;
+}
+
+.nav_second_item>a:hover {
+    color: #57E275;
+}
+
+.nav_second_item:focus-within .nav_third_list {
+    /* display: block; */
+    max-height: 1000px;
+
+}
+
+.nav_second_item:nth-child(3)>.nav_third_list {
+    top: -200%;
+}
+
+.nav_third_list {
+    break-inside: avoid;
+    overflow: hidden;
+    /* position: absolute; */
+    /* left: 100%;
+    top: 0; */
+    /* max-height: 0; */
+    /* display: none; */
+    /* transition: all .3s ease; */
+    min-width: 100%;
+    /* padding-left: 10px; */
+    background-color: #1159A7;
+}
+
+.nav_third_item {
+    position: relative;
+    text-align: left;
+    transition: all .3s ease;
+    height: calc(1.5rem * 2);
+    padding: 6px 25px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.nav_third_item::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    display: block;
+    background-image: url("/images/icon/icon_down.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nav_third_item:hover {
+    background-color: #0E4B8D;
+}
+
+.nav_third_item>a {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    line-height: 1;
+}
+
+.nav_third_item:hover>a {
+    color: #57E275;
+}
+
+.nav_second_item:hover>.nav_third_list {
+    max-height: 1000px;
+    /* display: block; */
+}
+
+/* 舊版導航樣式 */
+
+
+/* 移動端導航欄 */
+.app-nav {
+    display: none;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.app-nav-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.app-search {
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
+}
+
+.app-search-container {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+#app-search-btn {
+    border: 0;
+    outline: 0;
+    width: 20px;
+    height: 20px;
+    margin-left: 16px;
+    flex-shrink: 0;
+    background: url("/images/icon/app_search_icon.png") no-repeat;
+    background-size: contain;
+}
+
+#app-search-ipt {
+    /* border: 0; */
+    outline: 0;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #d9d9d9;
+    border-radius: 50px;
+    padding: 8px 16px;
+}
+
+.app-nav-bottom {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.app-nav-container {
+    width: 100%;
+    height: 50vh;
+    overflow-y: auto;
+}
+
+.app-nav-list {
+    width: 100%;
+    background: linear-gradient(90deg, #0071C0 0%, #00893B 100%);
+}
+
+.appnav_first_item {
+    /* background-color: #1159A7; */
+    box-sizing: border-box;
+}
+
+.appnav_first_top {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 16px;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #0071C0 0%, #00893B 100%);
+}
+
+.appnav_first_top.active {
+    background: #0071C0;
+}
+
+.appnav_first_top.active>a {
+    color: #57E275;
+}
+
+.appnav_first_top>a {
+    color: #fff;
+    padding: 15px;
+    display: block;
+}
+
+.aNav_first_drop {
+    width: 10px;
+    margin-left: 20px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: .3s all linear;
+    transform: rotate(0deg);
+    outline: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+.aNav_first_drop.open {
+    transform: rotate(90deg);
+}
+
+.aNav_first_drop>img {
+    width: 100%;
+    display: block;
+}
+
+.appnav_second_list {
+    width: 100%;
+    display: none;
+}
+
+.appnav_second_item {
+    /* padding: 15px 0; */
+    background-color: #0E4B8D;
+}
+
+.appnav_second_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    padding-left: 40px;
+    position: relative;
+    background-color: #0071C0;
+}
+
+.appnav_second_top.active>a {
+    color: #57E275;
+}
+
+.appnav_second_top.active {
+    background-color: #005692;
+}
+
+.appnav_second_top::before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    position: absolute;
+    left: 36px;
+    top: calc(15px + .7rem);
+}
+
+.appnav_second_top>a {
+    color: #fff;
+    padding: 15px;
+    display: block;
+}
+
+.aNav_second_drop {
+    width: 10px;
+    margin-left: 20px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: .3s all linear;
+    transform: rotate(0deg);
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+}
+
+.aNav_second_drop.open {
+    transform: rotate(90deg);
+}
+
+.appnav_second_top>.aNav_second_drop>img {
+    width: 10px;
+}
+
+.appnav_third_list {
+    background-color: #005692;
+    padding-left: 16px;
+    display: none;
+}
+
+.appnav_third_item {
+    padding: 15px 0;
+    padding-left: 24px;
+}
+
+.appnav_third_item>a {
+    color: #fff;
+    padding: 0 15px;
+    display: block;
+}
+
+.appnav_third_item>a:hover {
+    color: #1159A7;
+}
+
+/* 移動端導航欄 */
+@media only screen and (max-width: 1440px) {
+    .nav_second_list_new{
+        max-width: 100%;
+    }
+}
+/* @media only screen and (min-width: 1200px) {
+    .app-nav{
+        display: none!important;
+    }
+} */
+@media only screen and (max-width: 960px) {
+    .top-search {
+        display: none;
+    }
+
+    .head-nav {
+        display: none;
+    }
+
+    .tabmain-nav-item {
+        position: absolute;
+        left: unset;
+        right: 0;
+    }
+
+    .webIcon {
+        min-width: auto;
+        width: 200px;
+    }
+
+    .webIcon>img.appLogo {
+        display: block;
+    }
+
+    .webIcon>img.webLogo {
+        display: none;
+    }
+
+    .top-fn>.outLink-list,
+    .top-fn>.fontSizeChange,
+    .top-fn>.langChange,
+    .top-fn>.top-search {
+        display: none;
+    }
+
+    #appmenu-btn {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .webIcon {
+        width: 153px;
+    }
+    .top-fn{
+        margin-left:0;
+    }
+}
+.pageBanner{
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+.pageBanner-cont{
+    padding-bottom: 240px;
+    position: relative;
+}
+.pageBanner::before{
+    content: "";
+    width: 40%;
+    height: 100%;
+    background-image: linear-gradient(to right, #0172B9, transparent);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.pageBanner-text{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+}
+.pageBanner-word{
+    font-size: 2.5rem;
+}
+.pageBanner-word.enTitle{
+    font-size: 1.5rem;
+}
+
+
+
+
+.breadcrumb{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 20px 0;
+    padding: 12px 0;
+}
+.breadcrumb-div{
+    background-color: #F5F5F5;
+    margin: 0 auto 15px;
+}
+.breadcrumb_home{
+    width: 18px;
+    margin-right: 8px;
+}
+.breadcrumb{
+    width: 96%;
+    box-sizing: border-box;
+}
+.breadcrumb a{
+    color: #000;
+    font-size: 1rem;
+    line-height:2rem;
+}
+.navPage_a{
+    margin-right: 5px;
+}
+.navPage_next{
+    margin-right: 5px;
+}
+.navPage_a_right{
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+.breadcrumb>.navPage_a:last-of-type{
+    color: #000;
+}
+.index_navPage{
+    display: flex;
+    align-items: center;
+}
+@media only screen and (max-width: 1200px){
+.breadcrumb{
+    margin: 20px 0;
+}
+.pageBanner-word {
+    padding: 10px 30px;
+}
+}
+
+@media only screen and (max-width: 768px){
+.pageBanner-text{
+    font-size: 1.5rem;
+    left: 20px;
+    max-height: 64px;
+}
+.pageBanner-word{
+        font-size: 2rem;
+        padding: 6px 16px;
+}
+.pageBanner-text::before{
+    height: 64px;
+    }
+.breadcrumb{
+    padding: 8px 0;
+}
+    .banner-box{
+        height: 80px;
+    }
+    .banner-text{
+        font-size: 1.25rem;
+    }
+    .banner-text{
+        width: 90%;
+    }
+    .pageBanner-word.enTitle{
+    font-size: 1.125rem;
+}
+}
+
+    #modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 9998;
+    }
+
+    /* 弹窗主体 */
+    #modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 600px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      overflow: hidden;
+      display: none;
+    }
+
+    /* 弹窗头部 */
+    .modal-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid #d9d9d9;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* 关闭按钮 */
+    .modal-close {
+      cursor: pointer;
+      font-size: 32px;
+      color: #aaa;
+      background-color: #fff;
+      border: 0;
+      line-height: 1;
+      margin-left: 20px;
+      flex-shrink: 0;
+    }
+    .modal-close:hover {
+      color: #000;
+    }
+
+    /* 弹窗内容区 */
+    .modal-body {
+      padding: 20px;
+      color: #232323;
+      line-height: 1.5;
+    }
+.footer {
+    background: linear-gradient(90deg, rgba(0, 113, 192, 1), rgba(0, 137, 59, 1));
+    position: relative;
+    overflow: hidden;
+    padding: 38px 20px;
+    color: #ffffff;
+}
+
+/* 背景裝飾元素 */
+.footer::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: radial-gradient(ellipse at top right, rgba(26, 95, 95, 0.8) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.footer::after {
+    content: '';
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.footer-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    /* grid-template-columns: 1fr 2fr 1fr; */
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 左側區域 */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 0.9;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(26, 95, 95, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.contact-icon .footerOutLink-item {
+    width: 20px;
+    height: 20px;
+}
+
+.footerOutLink-item img {
+    width: 100%;
+}
+
+
+.separator {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
+/* 右側區域 */
+.footer-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+}
+
+.footer-right img {
+    width: 252px
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+.clickBtn{
+    cursor: pointer;
+    transition: all 0.5s ease 0s;
+}
+.clickBtn:hover{
+    box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.social-icons .footerOutLink-item {
+    width: 40px;
+    height: 40px;
+}
+
+.social-icon.dark-green {
+    background-color: rgba(26, 95, 95, 0.9);
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* 底部區域 */
+.footer-last {
+    border-top: 1px solid rgba(221, 243, 255, 0.3);
+    padding-top: 15px;
+    display: flex;
+    grid-column: span 3;
+    justify-content: space-between;
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* 響應式設計 */
+@media (max-width: 960px) {
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        /* grid-template-columns: 1fr; */
+        gap: 30px;
+    }
+
+    .tels-list {
+        display: flex;
+        gap: 10px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .footer-right {
+        margin-top: 15px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .footer-center {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .footer-right {
+        align-items: center;
+    }
+
+    .footer-nav {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 20px 30px;
+    }
+
+    .footer-container {
+        gap: 12px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 8px
+    }
+
+    .footer-right {
+        margin-top: 12px;
+        display: flex;
+        flex-direction: column;
+        /* justify-content:flex-end; */
+        gap: 10px;
+        /* padding: 10px; */
+        align-items: center;
+    }
+
+    .footer-right img {
+        width: 90%
+    }
+
+    .action-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .action-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer-nav {
+        /* flex-direction: column; */
+        gap: 10px;
+        text-align: center;
+    }
+
+    .footer-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tels-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-last {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-meta {
+        align-items: flex-start;
+    }
+}
+body:lang(zh-hant) {
+    font-family: -apple-system, BlinkMacSystemFont, "Microsoft JhengHei", "PingFang TC", "Microsoft YaHei", sans-serif;
+}
+body:lang(zh-hans) {
+    font-family: -apple-system, BlinkMacSystemFont, "Microsoft YaHei","Microsoft JhengHei", "PingFang TC", sans-serif;
+}
+.fontDiv{
+    color: #232323;
+}
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+.container_width{
+    max-width: 1440px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+/* 漸變色字體 */
+.gradient-text {
+  background: linear-gradient(to right, #0071C0, #00893B);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+/* 子頁面兩欄佈局 */
+.dbcolumn-felx-layout{
+   width: 100%;
+}
+.dbcolumn-left-layout{
+   width: 25%;
+   min-width: 350px;
+   flex-shrink: 0;
+}
+.dbcolumn-right-layout{
+    width: 75%;
+}
+/* 子頁面兩欄佈局 */
+
+@media only screen and (max-width: 1648px) {
+    .container_width{
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .container_width{
+    width: 96%;
+    margin: 0 auto;
+    }
+}
+/* 通用側邊藍色文字框 */
+.common-blue-box{
+    box-sizing: border-box;
+    padding: 20px 10px;
+    border: 1px solid #0071C0;
+    border-radius: 3px;
+    border-left: 6px solid #0071C0;
+}
+@media only screen and (max-width: 768px) {
+    .container_width{
+    width: 96% !important;
+    margin: 0 auto;
+    }
+   .dbcolumn-flex-layout{
+    flex-direction: column;
+   }
+   .dbcolumn-left-layout,.dbcolumn-right-layout{
+     width: 100%;
+     padding-bottom: 30px;
+     min-width: unset;
+   }
+}
+
+.left_menu{
+    margin-right: 48px;
+}
+.lmenu_first_head{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 24px;
+    text-decoration: none;
+    /* font-size: 18px; */
+    color: #0071C0;
+    background-color: #e5f2fe;
+    border-bottom: 1px solid #bdd9fc;
+    transition: .3s all ;
+    cursor: pointer;
+}
+.lmenu_first_head.hasChild{
+    padding: 15px 40px 15px 24px;
+}
+.lmenu_first_head.active{
+    color: #0071C0;
+    background-color: #D1EFFF;
+}
+.lmenu_first_head:hover{
+    color: #0071C0;
+    background-color: #D1EFFF;
+}
+.lmenu_first_head.hasChild::after{
+    content: "";
+    width: 13px;
+    height: 8px;
+    background-image: url("/images/icon/lmenu_arrow.png");
+    background-position: center;
+    background-size: contain;
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    transition: all .3s ease;
+}
+.lmenu_first_head.hasChild:hover:after{
+    background-image: url("/images/icon/lmenu_arrow.png");
+}
+.lmenu_first_head.hasChild.active:after{
+    background-image: url("/images/icon/lmenu_arrow.png");
+    transform: translateY(-50%) rotate(180deg);
+}
+.lmenu_second_list{
+    display: none;
+    background-color: #fff;
+}
+/* .lmenu_first_item.open .lmenu_second_list {
+  display: block;
+} */
+.lmenu_second_item{
+    border-bottom: 1px solid #fff;
+}
+.lmenu_second_item a{
+    display: block;
+    background-color: #B0E3FF;
+    color: #000;
+    box-sizing: border-box;
+    padding: 15px 40px 15px 24px;
+    transition: all .3s ease;
+}
+.lmenu_second_item a:hover,.lmenu_second_item a.active{
+    color: #0071C0;
+}
+/* @media only screen and (max-width: 960px) {
+     .left_menu{
+        display:none;
+        margin-right: 0;
+    }
+} */
+@media only screen and (max-width: 768px) {
+    .left_menu{
+        display:none;
+        margin-right: 0;
+    }
+}
+.common_article_title{
+   font-size: 2rem;
+   color: #0071C0;
+   margin-bottom: 30px;
+   font-weight: bold;
+}
+.customs_declaration{
+    padding-bottom: 64px;
+}
+.nav_header{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 4px solid #00893B;
+    margin-bottom:20px;
+}
+.nav_header li{
+    background-color: #F5F5F5;
+    cursor: pointer;
+    margin-right: 16px;
+    transition: all .3s;
+    margin-top: 6px;
+}
+.nav_header li a{
+    display: block;
+    padding: 11px 32px;
+    color:#232323;
+}
+.nav_header li:hover{
+    background-color: #00893B;
+    color:#fff;
+}
+.nav_header li:hover > a{
+    color:#fff;
+}
+.nav_header li.active{
+    background-color: #00893B;
+    color:#fff;
+}
+.nav_header li.active > a{
+    color:#fff;
+}
+.content .content-item{
+    display:block;
+}
+.content .card-content{
+    position: relative;
+    background-color: #F5F5F5;
+    padding:16px;
+    margin-top:16px ;
+    /* border-left: 4px solid #0071C0; */
+    line-height: 24px;
+}
+.content .card-content::before{
+    position: absolute;
+    left:0;
+    top: -16px;
+    display: block;
+    content: '';
+    background-color: #BAE3FF;
+    border-left: 4px solid #0071C0;
+    width: 100%;
+    height: 18px;
+}
+
+.content .tips-content{
+    color: #c09853;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    padding: 24px;
+}
+.content ol {
+    padding-left:16px;
+}
+.content ol li{
+    list-style-type: decimal;
+}.content ol {
+    padding-left:16px;
+}
+.content ul li{
+    list-style-type: disc;
+}
+.dropdown{
+    position: relative;
+}
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+.dropdown:focus-within .dropdown-menu{
+    display: block;
+}
+.dropdown-menu{
+    display:none;    
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #F5F5F5;
+    width: 220px;
+}
+.dropdown-menu li{
+    width:200px;
+    margin-right: 0;
+}
+.dropdown-menu li a{
+    color:#232323;
+}
+.warning-content{
+    color: #b94a48;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    padding: 15px;
+}
+/* .table-scroll-container{
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #F5F5F5;
+    min-height: 550px;
+    overflow-x: auto;
+    position: relative;
+} */
+/* .table-scroll-container table{
+    white-space: nowrap;
+    position: absolute;
+    top:0;
+    left:0;
+} */
+.table-scroll-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-content {
+    display: grid;
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    overflow-x: auto;
+}
+.scroll-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* CSS-only 箭頭指示器 */
+.table-scroll-container:before,
+.table-scroll-container:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.scroll-content:not(:hover) {
+    scrollbar-width: none;
+}
+
+
+/* 左側箭頭背景 */
+.table-scroll-container:before {
+    left: 0;
+    background: linear-gradient(90deg, 
+        rgba(255,255,255,0.95) 0%, 
+        rgba(255,255,255,0.7) 50%, 
+        transparent 100%);
+}
+
+/* 右側箭頭背景 */
+.table-scroll-container:after {
+    right: 0;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255,255,255,0.7) 50%, 
+        rgba(255,255,255,0.95) 100%);
+}
+
+/* 使用CSS Grid創建箭頭形狀 */
+.table-scroll-container:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 18l-6-6 6-6'%3E%3C/path%3E%3C/svg%3E");
+    background-color: rgba(0,0,0,0.05);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+}
+
+.table-scroll-container:after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 18l6-6-6-6'%3E%3C/path%3E%3C/svg%3E");
+    background-color: rgba(0,0,0,0.05);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+}
+
+@media (max-width: 960px) {
+    .table-scroll-container:before,
+    .table-scroll-container:after {
+        width: 30px;
+        opacity: 1; 
+    }
+}
+
+/* 桌機樣式 */
+@media (min-width: 961px) {
+    .table-scroll-container:before,
+    .table-scroll-container:after {
+        display: none;
+    }
+    
+    .scroll-content {
+        padding: 0;
+        scrollbar-width: thin;
+    }
+    
+    .scroll-content::-webkit-scrollbar {
+        display: block;
+        height: 6px;
+    }
+}
+.table-scroll-container table thead{
+    position: sticky;
+    top:0;
+}
+.table-scroll-container table td{
+    min-width:150px;
+    padding: 5px;
+}
+.table-scroll-container table th{
+    padding: 5px;
+}
+/* .table-scroll-container::-webkit-scrollbar{
+    display: none;
+} */
+@media only screen and (max-width: 768px) {
+    /* .table-scroll-container table{
+    white-space: nowrap;
+} */
+    .dropdown-menu{  
+        right: 0;
+        left:0;
+    }
+    .common_article_title{
+        font-size: 1.5rem;
+    }
+}
+</style>
+<script type="text/javascript" src="/theme/standard.js"></script>
+<script type="text/javascript" src="/system/js/jquery.js"></script>
+<script type="text/javascript">
+var oMeta = document.createElement('meta');
+oMeta.charset = 'utf-8';
+oMeta.name = "viewport";
+oMeta.content = 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no';
+document.getElementsByTagName('head')[0].appendChild(oMeta);
+const iconLink = document.createElement('link');
+iconLink.href = "/images/icon/webTitleIcon.png"
+iconLink.type = 'image/x-icon'
+iconLink.rel = 'icon';
+document.getElementsByTagName('head')[0].appendChild(iconLink);
+
+
+
+
+const key = 'mgt550n3'
+
+
+</script>
+</head>
+<body style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0">
+<div class="cms-layout fontDiv" style="position: relative;"><div class="cms-layout-row" style="border-collapse: collapse; clear: both; display: table; border-spacing: 0; table-layout: auto; margin: 0 auto; width: 100.0%; position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    padding-top: env(safe-area-inset-top);"><div key="r0c0" class="cms-layout-column" style="display: table-cell; vertical-align: top;padding-left: 0;width: 100.0%; "><div section-id="141048" class="cms-section" style="padding: 0px; "><div style="margin: 0 auto; padding: 0;"><script type="text/javascript">    // 弹窗显示函数
+    function showModal(title, content) {
+      $('#modal-title').text(title);
+      $('#modal-content').html(content); // 支持HTML内容
+      $('#modal-overlay').fadeIn(200);
+      $('#modal').fadeIn(200);
+      $('#modal-title').focus()
+    }
+
+    // 关闭弹窗函数
+    function closeModal() {
+      $('#modal-overlay').fadeOut(200);
+      $('#modal').fadeOut(200);
+    }
+
+    // 初始化：点击遮罩或关闭按钮关闭弹窗
+    $(document).ready(function () {
+      $('#modal-overlay, .modal-close').on('click', function () {
+        closeModal();
+      });
+
+      // 点击弹窗本身不关闭
+      $('#modal').on('click', function (e) {
+        e.stopPropagation();
+      });
+    });</script>
+<div id="modal-overlay"></div>
+  <div id="modal">
+    <div class="modal-header">
+      <span tabindex="1" id="modal-title"></span>
+      <button tabindex="1" class="modal-close" role="button" aria-label="">&times;</button>
+    </div>
+    <div class="modal-body" id="modal-content" tabindex="1"></div>
+  </div>
+
+</div></div><div section-id="141050" class="cms-section" style="padding: 0px; "><div style="margin: 0 auto; padding: 0;"><script type="text/javascript">var locale = "zh_TW";
+if (locale === 'zh_TW') {
+  document.documentElement.lang = 'zh-hant';
+} else if (locale === 'zh_CN') {
+  document.documentElement.lang = 'zh-hans';
+}
+
+document.title =document.title +" - " + "澳門海關"
+const FONT_SIZE_CONFIG = {
+  16: 'fontSize_less',
+  18: 'fontSize_mid',
+  20: 'fontSize_large'
+};
+const DEFAULT_FONT_SIZE = 16;
+
+// 页面加载完成后初始化字体大小
+$(function () {
+  initFontSize();
+  dealCurrentLang();
+});
+
+// 初始化字体大小（页面加载时执行）
+function initFontSize() {
+  // 从localStorage读取字体大小（若未存储则使用默认值）
+  const savedSize = localStorage.getItem("cms-local-fontSize") || DEFAULT_FONT_SIZE;
+  // 调用changeGlobFontSize设置字体大小（复用原有逻辑）
+  changeGlobFontSize(savedSize.toString());
+}
+
+// 切换全局字体大小（原有逻辑，复用）
+function changeGlobFontSize(size) {
+  // 缓存需要操作的DOM元素
+  const fontSizeChangeSpans = $('.fontSizeChange button');
+  const htmlElement = $('HTML');
+  // 保存到localStorage
+  localStorage.setItem("cms-local-fontSize", size);
+  // 移除所有选中状态
+  fontSizeChangeSpans.removeClass('text_selected');
+  // 设置字体大小和选中状态
+  dealCurrentFontSize(size, htmlElement, fontSizeChangeSpans);
+}
+
+// 处理当前字体大小逻辑（原有逻辑，复用）
+function dealCurrentFontSize(curSize, htmlElement, spans) {
+  const validSize = Number(curSize) || DEFAULT_FONT_SIZE;
+  htmlElement.css('font-size', validSize + 'px');
+  if (FONT_SIZE_CONFIG[validSize]) {
+    spans.filter('.' + FONT_SIZE_CONFIG[validSize]).addClass('text_selected');
+  }
+}
+
+
+function dealCurrentLang() {
+  $('.langChange a').removeClass('text_selected');
+  if (locale === 'zh_TW') {
+    $('.lang_zh').addClass('text_selected');
+  } else if (locale === 'pt') {
+    $('.lang_pt').addClass('text_selected');
+  } else if (locale === 'zh_CN') {
+    $('.lang_cn').addClass('text_selected');
+  }
+}
+
+function curttentPagetoContainerArea() {
+  var elementOffset = $('.page-main-area').offset().top;
+  $('.page-main-area').attr('tabindex', 1)
+  $('html, body').animate({
+    scrollTop: elementOffset
+  }, 500, function () {
+    $('.page-main-area').focus();
+  });
+}</script>
+<header>
+  <a class="tabmain-nav-item" tabindex="1" onclick="curttentPagetoContainerArea()" href="javasrcipt:void(0)">
+    移動到内容區域
+  </a>
+  <div class="header-container">
+    <div class="head-top container_width">
+      <a tabindex="1" href="/cn/index.html" class="webIcon"
+        aria-label="">
+        <img class="webLogo" src="/images/icon/webLogo.png" alt="澳門海關"/>
+        <img class="appLogo" src="/images/icon/webLogo.png" alt="澳門海關"/>
+      </a>
+      <div class="top-fn">
+        <div class="outLink-list">
+          <button tabindex='1' class="outLink-item show_qr"
+           aria-label="打開微信二維碼"><img src="/images/icon/weixin.png"  alt="image"></button>
+          <a tabindex='1' class="outLink-item" href="https://www.facebook.com/MacaoCustoms/" target="_blank"
+            aria-label="facebook"><img src="/images/icon/facebook.png" alt="facebook"></a>
+          <a tabindex='1' class="outLink-item" href="https://www.instagram.com/macaocustoms/" target="_blank"
+            aria-label="instagram"><img src="/images/icon/ins.png" alt="instagram"></a>
+          <a tabindex='1' class="outLink-item" href="https://www.youtube.com/channel/UCeUdNJHfDV-2Jvli0QV6r-A" target="_blank"
+            aria-label="youtube"><img src="/images/icon/youtube.png" alt="youtube"></a>
+        </div>
+        <div class="fontSizeChange">
+          <button tabindex='1' class="fontSize_less" tabindex="1" onclick="changeGlobFontSize(16)" aria-label="切換小字體">A</button>
+          <button tabindex='1' class="fontSize_mid" tabindex="1" onclick="changeGlobFontSize(18)" aria-label="切換正常大小字體">A</button>
+          <button tabindex='1' class="fontSize_large" tabindex="1"  onclick="changeGlobFontSize(20)" aria-label="切換大字體">A</button>
+        </div>
+          <div class="langChange">
+            <a tabindex='1' aria-label="切換為繁體中文頁面" tabindex="1"
+              class="lang_zh  text_selected" href="/cn/notice_passengers_item1.html">繁</a>
+            <a tabindex='1' aria-label="切換簡體中文頁面" tabindex="1" class="lang_cn"
+              href="/gb/notice_passengers_item1.html">简</a>
+            <a tabindex='1' aria-label="切換葡文頁面" tabindex="1" class="lang_pt"
+              href="/pt/notice_passengers_item1.html">PT</a>
+          </div>
+        <div class="top-search">
+          <input tabindex='1' type="text" id="top-search-ipt" placeholder="搜尋..." name="keyword" aria-label="搜尋..." maxlength="40"/>
+          <button tabindex='1' class="search-ipt-icon" aria-label="搜尋...">
+                    <img src="/images/icon/w_search.png" alt="搜尋...">
+                </button>
+        </div>
+        <!-- 移動端菜單按鈕 -->
+        <button type="button" tabindex="1" id="appmenu-btn" data-status="close" aria-label="打開菜單">
+                <img class="appmenu-menu-icon" src="/images/icon/app_menu.png" alt="">
+                <img class="appmenu-close-icon" src="/images/icon/close.png" alt="">
+        </button>
+      </div>
+    </div>
+    <div class="head-nav">
+      <div class="nav_menu_new">
+        <div class="nav_menu_loading"></div>
+      </div>
+    </div>
+    <!-- 導航欄 舊版-->
+    <!-- app導航欄 -->
+    <div class="app-nav">
+      <div class="app-nav-top">
+        <div class="fontSizeChange">
+          <button tabindex='1' class="fontSize_less" tabindex="1" onclick="changeGlobFontSize(14)" aria-label="切換小字體">A</button>
+          <button tabindex='1' class="fontSize_mid" tabindex="1" onclick="changeGlobFontSize(16)" aria-label="切換正常大小字體">A</button>
+          <button tabindex='1' class="fontSize_large" tabindex="1"  onclick="changeGlobFontSize(18)" aria-label="切換大字體">A</button>
+        </div>
+          <div class="langChange">
+            <a tabindex='1' aria-label="切換為繁體中文頁面" tabindex="1"
+              class="lang_zh  text_selected" href="/cn/notice_passengers_item1.html">繁</a>
+            <a tabindex='1' aria-label="切換簡體中文頁面" tabindex="1" class="lang_cn"
+              href="/gb/notice_passengers_item1.html">简</a>
+            <a tabindex='1' aria-label="切換葡文頁面" tabindex="1" class="lang_pt"
+              href="/pt/notice_passengers_item1.html">PT</a>
+          </div>
+      </div>
+      <div class="app-search">
+        <div class="app-search-container">
+          <input tabindex='1' id="app-search-ipt" type="text" name="appsearch" placeholder="" aria-label="搜尋..." maxlength="40"/>
+          <button tabindex='1' id="app-search-btn" aria-label="搜尋..."></button>
+        </div>
+      </div>
+      <div class="app-nav-container">
+        <ul class="app-nav-list">
+          <!-- app導航欄待生成.. -->
+        </ul>
+      </div>
+      <div class="app-nav-bottom">
+        <div class="outLink-list">
+          <button tabindex='1' class="outLink-item show_qr" href="javascript:void(0);"
+        aria-label="打開微信二維碼"><img src="/images/icon/weixin.png" alt="image"></button>
+          <a tabindex='1' class="outLink-item" href="https://www.facebook.com/MacaoCustoms/" target="_blank"
+            aria-label="facebook"><img src="/images/icon/facebook.png" alt="facebook"></a>
+          <a tabindex='1' class="outLink-item" href="https://www.instagram.com/macaocustoms/" target="_blank"
+            aria-label="instagram"><img src="/images/icon/ins.png" alt="instagram"></a>
+          <a tabindex='1' class="outLink-item" href="https://www.youtube.com/channel/UCeUdNJHfDV-2Jvli0QV6r-A" target="_blank"
+            aria-label="youtube"><img src="/images/icon/youtube.png" alt="youtube"></a>
+          <a tabindex="1" id="barrierFree-close-appnav" aria-label="關閉菜單"></a>
+        </div>
+      </div>
+    </div>
+    <!-- app導航欄 -->
+  </div>
+</header>
+
+
+<script>
+  $('#appmenu-btn').click(function(){
+   let status = $(this).attr('data-status');
+   if(status==='close'){
+   $('html').addClass('no-scroll');
+   $(this).attr('aria-label',"關閉菜單");
+   $('.app-nav').slideDown();
+   $('.app-nav-top').focus();
+   $(this).attr('data-status','open');
+   $('.appmenu-close-icon').show();
+   $('.appmenu-menu-icon').hide();
+   }else{
+   $('html').removeClass('no-scroll');
+   $(this).attr('aria-label',"打開菜單");
+   $('.app-nav').slideUp();
+   $(this).attr('data-status','close');
+   $('.appmenu-menu-icon').show();
+   $('.appmenu-close-icon').hide();
+   }
+})
+
+$("#barrierFree-close-appnav").click(function(){$('#appmenu-btn').click()})
+
+//處理麵包屑
+const breadcrumbHtml = `     
+                <a tabindex='1' style="text-decoration:none;" data-alias="index" class="navPage_a index_navPage" href="/cn/index.html"><img class="breadcrumb_home"  src="/images/icon/icon_home.png" alt="">首頁</a>
+                         <img alt="" class="navPage_a_right" src="/images/icon/breadcrumbIcon.png" alt="">
+    <a tabindex='1' class="navPage_a" href="/cn/customs_inspection_service.html" data-alias="customs_inspection_service" data-groupName='關檢服務'>關檢服務</a>
+                         <img alt="" class="navPage_a_right" src="/images/icon/breadcrumbIcon.png" alt="">
+    <a tabindex='1' class="navPage_a" href="#" data-alias="notice_passengers" data-groupName='關檢服務'>旅客須知</a>
+                         <img alt="" class="navPage_a_right" src="/images/icon/breadcrumbIcon.png" alt="">
+    <a tabindex='1' class="navPage_a" href="#" data-alias="notice_passengers_item1" data-groupName='關檢服務'>入境/出境申報</a>
+            `;
+
+$.ajax({
+    url: `/rss/cn/hearMenuNew.rss`,
+    type: 'GET',
+    dataType: 'xml',
+    success: function(data) {
+        console.log('RSS 数据获取成功:', data);
+        const menuItems = parseRssToMenu(data);
+        renderMenu(menuItems);
+    },
+    error: function(xhr, status, error) {
+        console.error('获取 RSS 失败:', error);
+    }
+});
+
+
+function renderMenu(menuItems) {
+    const container = $('.nav_menu_new');
+    const appContainer = $('.app-nav-list');
+    container.empty();
+    appContainer.empty();
+    menuItems.forEach((item, index) => {
+        const menuHtml = renderMenuItem(item, index);
+        container.append(menuHtml.html);
+        appContainer.append(menuHtml.appHtml);
+    });
+    bindAppNavEvents();
+}
+
+function parseRssToMenu(xmlData) {
+    const items = [];
+    
+    $(xmlData).find('item').each(function() {
+        const $item = $(this);
+        const title = $item.find('title').text();
+        const link = $item.find('link').text();
+        const pubDate = $item.find('pubDate').text();
+        const parent = $item.find('parent').text();
+        //檢查是否預覽環境
+        const isPreview=window.location.pathname.includes('/preview/')
+    
+        const newLink= isPreview && link.includes("/admin/")?link.replace("/admin/", "/preview/"):link;
+        
+        items.push({
+            title,
+            link:newLink || '#',
+            pubDate,
+            parent,
+            children: []
+        });
+
+        
+    });
+    return buildMenuHierarchy(items.filter(f=>f.title));
+    
+}
+
+function buildMenuHierarchy(items) {
+    const menuMap = {};
+    const rootItems = [];
+    
+    items.forEach(item => {
+        menuMap[item.title] = item;
+    });
+    
+    items.forEach(item => {
+        if (item.parent && menuMap[item.parent]) {
+            menuMap[item.parent].children.push(item);
+        } else {
+            rootItems.push(item);
+        }
+    });
+    
+    return rootItems;
+}
+function renderMenuItem(item, index) {
+
+    // console.log(item);
+    const hasChildren = item.children && item.children.length > 0 ? 'has-children' :'';
+    const appHasChildren = item.children && item.children.length > 0 ? `
+                    <button tabindex="1" class="aNav_first_drop" role="button" 
+                            aria-label="開啟選單" 
+                            >
+                        <img src="/images/icon/icon_down.png" alt="image">
+                    </button>
+                ` :'';
+    let html = `
+        <div tabindex="-1" class="nav_first_item_new">
+            <a tabindex="1" 
+              href="`+item.link+`" 
+               class="`+hasChildren+`"
+               target="_self"
+               >
+                `+item.title+`
+            </a>
+    `;
+    let appHtml=`
+        <li tabindex="1" class="appnav_first_item">
+            <div class="appnav_first_top">
+                <a tabindex="-1" 
+                   href="`+item.link+`" 
+                   target="_self">
+                    <span>`+item.title+`</span>
+                </a>
+                `+appHasChildren+`
+            </div>
+    `;
+    
+    if (hasChildren) {
+        html += `<div class="nav_second_list_new"><div class="nav_second_container">`;
+        appHtml += `<ul class="appnav_second_list">`;
+        item.children.forEach((secondItem, secondIndex) => {
+            const hasThirdLevel = secondItem.children && secondItem.children.length > 0 ?'hadChild' : '';
+            const appHasThirdLevel=secondItem.children && secondItem.children.length > 0 ?`
+                            <button tabindex="1" class="aNav_second_drop" role="button" 
+                                    aria-label="開啟選單">
+                                <img src="/images/icon/icon_down.png" alt="image">
+                            </button>
+                        `:''
+            html += `
+                <div tabindex="-1" class="nav_second_item">
+                    <a tabindex="1" 
+                       class="`+hasThirdLevel+`"
+                       href="`+secondItem.link+`"
+                       target="_self"
+                       >
+                        <span>`+secondItem.title+`</span>
+                    </a>
+            `;
+            appHtml+=`
+                <li class="appnav_second_item">
+                    <div class="appnav_second_top">
+                        <a tabindex="1" 
+                           class="`+hasThirdLevel+`"
+                           href="`+secondItem.link+`"
+                           target="_self">
+                          <span>`+secondItem.title+`</span>
+                        </a>
+                        `+appHasThirdLevel+`
+                    </div>
+            `;
+            if (hasThirdLevel) {
+                html += `<ul class="nav_third_list">`;
+                appHtml += `<ul class="appnav_third_list">`;
+                
+                secondItem.children.forEach(thirdItem => {
+                    const isPtClass = $('html').attr('lang') === 'pt' ? 'isPt' : '';
+                    html += `
+                        <li tabindex="-1" class="nav_third_item `+isPtClass+`">
+                            <a tabindex="1" 
+                               href="`+thirdItem.link+`"
+                               target="_self"
+                               >
+                                `+thirdItem.title+`
+                            </a>
+                        </li>
+                    `;
+                    appHtml += `
+                        <li class="appnav_third_item">
+                            <a tabindex="1" 
+                               href="`+thirdItem.link+`"
+                               target="_self">
+                                `+thirdItem.title+`
+                            </a>
+                        </li>
+                    `;
+                });
+                
+                html += `</ul>`;
+                appHtml += `</ul>`;
+            }
+            
+            html += `</div>`;
+            appHtml += `</li>`;
+        });
+        
+        html += `</div></div>`;
+        appHtml += `</ul>`;
+    }
+    
+    html += `</div>`;
+     appHtml += `</li>`;
+    return {html,appHtml};
+}
+
+
+$(document).ready(function() {
+    //處理麵包屑
+    $(".breadcrumb").html(breadcrumbHtml);
+    //處理Banner標題
+    const $tgt = $('.pageBanner-word');
+    const txt = $('.breadcrumb a').map((_,a)=>$(a).text().trim()).get().filter(t=>t);
+    if(txt.length>2){
+       $tgt.text(txt.length >= 2 ? txt[txt.length - 2] : $tgt.text());
+    }else{
+       $tgt.text(txt[1]);
+    }
+});
+
+// $('.aNav_first_drop').click(function(){
+//    let self = $(this);
+//    self.toggleClass('open');
+//    self.parents('.appnav_first_item').find('.appnav_second_list').slideToggle();
+
+// })
+// $('.aNav_second_drop').click(function(){
+//    let self = $(this);
+//    self.toggleClass('open');
+//    self.parents('.appnav_second_item').find('.appnav_third_list').slideToggle();
+// })
+
+$('.nav_menu_new').on('click', '.nav_first_item_new', function(e) {
+    
+    $('.nav_second_list_new').addClass('transitionStyle');
+    var $self = $(this);
+    var $secondMenu = $self.find('.nav_second_list_new');
+    $self.toggleClass('active');
+    
+    // 如果当前没有二级菜单，直接返回
+    if ($secondMenu.length === 0) {
+      // 关闭所有其他二级菜单
+      $('.nav_second_list_new.active').removeClass('active');
+      $('.nav_first_item_new.active').removeClass('active');
+      return;
+    }
+    e.preventDefault();
+    e.stopPropagation();
+    // 检查当前二级菜单是否已经是激活状态
+    var isActive = $secondMenu.hasClass('active');
+    
+    // 先关闭所有其他二级菜单
+    $('.nav_second_list_new.active').not($secondMenu).removeClass('active');
+    $('.nav_first_item_new.active').not($self).removeClass('active');
+    // 切换当前二级菜单的激活状态
+    if (isActive) {
+      $secondMenu.removeClass('active');
+    } else {
+      $secondMenu.addClass('active');
+    }
+});
+var isMouseClick = false;
+
+// 監聽 mousedown 標記為鼠標點擊
+$('.nav_menu_new').on('mousedown', '.nav_first_item_new a', function() {
+
+  isMouseClick = true;
+});
+
+// 監聽 focus，但只在不是鼠標點擊時觸發
+$('.nav_menu_new').on('focus', '.nav_first_item_new>a', function(e) {
+  if (!isMouseClick) {
+    $(this).click();
+  }
+  isMouseClick = false; // 重置標誌
+});
+
+  // 点击页面其他地方关闭所有二级菜单
+  $(document).on('click', function(e) {
+    // 如果点击的不是一级菜单或其子元素
+    if (!$(e.target).closest('.nav_first_item_new').length) {
+      $('.nav_second_list_new.active').removeClass('active');
+      $('.nav_first_item_new.active').removeClass('active');
+
+    }
+})
+// $('.appnav_first_top>a').click(function(e){
+//   e.preventDefault();
+//   e.stopPropagation();
+//   let self = $(this);
+//   let $parentItem = self.parents('.appnav_first_top');
+//   $parentItem.click();
+// })
+
+
+  
+  // 阻止二级菜单内部的点击事件冒泡到document
+  $('.nav_menu_new').on('click', '.nav_second_list_new, .nav_second_item, .nav_third_list', function(e) {
+    e.stopPropagation();
+  });
+  
+  // 二级菜单项点击处理
+  $('.nav_menu_new').on('click', '.nav_second_item > a', function(e) {
+    // 如果链接有效，点击后跳转
+    console.log(this);
+
+    if ($(this).attr('href') && $(this).attr('href') !== '#') {
+      // 跳转前可以关闭菜单
+      $('.nav_second_list_new.active').removeClass('active');
+      $('.nav_first_item_new.active').removeClass('active');
+    } else {
+      // 阻止默认行为，只处理菜单交互
+      e.preventDefault();
+    }
+  });
+  $('.nav_menu_new').on('click', '.nav_third_item a', function(e) {
+    // 如果链接有效，点击后跳转并关闭所有菜单
+    if ($(this).attr('href') && $(this).attr('href') !== '#') {
+      $('.nav_second_list_new.active').removeClass('active');
+    } else {
+      e.preventDefault();
+    }
+  });
+
+
+// $('.appnav_second_top>a').click(function(e){
+//   e.preventDefault();
+//   e.stopPropagation();
+//   let self = $(this);
+//   let $parentItem =self.parents('.appnav_second_top');
+//   $parentItem.click();
+// })
+
+
+$('#top-search-ipt').on('keypress', function(e) {
+  if (e.which === 13) {
+    e.preventDefault();
+    let keyWord = $(this).val();
+    sessionStorage.setItem("keyword",keyWord);
+    window.location.href = "/cn/search.html"
+  }
+});
+$('.search-ipt-icon').click(function(){
+   let keyWord = $('#top-search-ipt').val();
+   sessionStorage.setItem("keyword",keyWord);
+   window.location.href = "/cn/search.html"
+})
+
+$('#app-search-ipt').on('keypress', function(e) {
+  if (e.which === 13) {
+    e.preventDefault();
+    let keyWord = $(this).val();
+    sessionStorage.setItem("keyword",keyWord);
+    window.location.href = "/cn/search.html"
+  }
+});
+
+$('#app-search-btn').click(function(){
+   let keyWord = $('#app-search-ipt').val();
+   sessionStorage.setItem("keyword",keyWord);
+   window.location.href = "/cn/search.html"
+})
+$('.outLink-item.show_qr').click(()=>{
+showModal("",`<img class="weChat_qrcode" style="width:100%;" src="/photo2/wechat_qrcode2_big.jpg">`);
+})
+function bindAppNavEvents() {
+    // 先解綁之前的事件，避免重複綁定
+    $('.aNav_first_drop').off('click');
+    $('.aNav_second_drop').off('click');
+    $('.appnav_first_top').off('click');
+    $('.appnav_second_top').off('click');
+    
+    // 綁定事件
+    $('.aNav_first_drop').click(function(e){
+        let self = $(this);
+        let $parentItem = self.parents('.appnav_first_item');
+        let $secondList = $parentItem.find('.appnav_second_list');
+        self.parents('.appnav_first_top').toggleClass('active');
+        
+        let isCurrentlyOpen = $secondList.is(':visible') || $parentItem.find('.aNav_first_drop').hasClass('open');
+
+        $('.appnav_first_item').not($parentItem).each(function(){
+            $(this).find('.appnav_first_top').removeClass('active');
+            $(this).find('.aNav_first_drop').removeClass('open');
+            $(this).find('.appnav_second_list').slideUp();
+        });
+        
+        $('.aNav_first_drop').not(self).removeClass('open');
+        self.toggleClass('open');
+
+        if (isCurrentlyOpen) {
+            $secondList.slideUp();
+        } else {
+            $secondList.slideDown();
+        }
+
+        e.stopPropagation();
+    });
+    
+    $('.aNav_second_drop').click(function(e){
+        let self = $(this);
+        let $parentItem = self.parents('.appnav_second_item');
+        let $thirdList = $parentItem.find('.appnav_third_list');
+        self.parents('.appnav_second_top').toggleClass('active');
+
+        let isCurrentlyOpen = $thirdList.is(':visible') || $parentItem.find('.aNav_second_drop').hasClass('open');
+
+        $parentItem.siblings('.appnav_second_item').each(function(){
+            $(this).find('.aNav_second_drop').removeClass('open');
+            $(this).find('.appnav_second_top').removeClass('active');
+            $(this).find('.appnav_third_list').slideUp();
+        });
+
+        $parentItem.siblings('.appnav_second_item').find('.aNav_second_drop').removeClass('open');
+
+        self.toggleClass('open');
+        if (isCurrentlyOpen) {
+            $thirdList.slideUp();
+        } else {
+            $thirdList.slideDown();
+        }
+
+        e.stopPropagation();
+    });
+
+    $('.appnav_first_top').click(function(e){
+        var a = $(this).find('a')[0];
+        var aNav_first_dropBtn = $(this).find('.aNav_first_drop')[0];
+        if (a && a.href && !aNav_first_dropBtn) {
+            a.click();
+        } else {
+            $(this).find('.aNav_first_drop').click();
+        }
+    });
+
+    $('.appnav_first_top a').click(function(e){
+      const self = $(this);
+      const $parentItem = self.parents('.appnav_first_item');
+      const hasThisChildren=$parentItem.find('.appnav_second_list')[0];
+      console.log(hasThisChildren);
+      if(hasThisChildren){
+ e.preventDefault();
+      }
+    });
+
+    $('.appnav_second_top a').click(function(e){
+      const self = $(this);
+      const $parentItem = self.parents('.appnav_second_item');
+      const hasThisChildren=$parentItem.find('.appnav_third_list')[0];
+      console.log(hasThisChildren);
+      if(hasThisChildren){
+ e.preventDefault();
+      }
+    });
+
+    $('.appnav_second_top').click(function(e){
+        var a = $(this).find('a')[0];
+        var aNav_second_dropBtn = $(this).find('.aNav_second_drop')[0];
+        if (a && a.href && !aNav_second_dropBtn) {
+            a.click();
+        } else {
+            $(this).find('.aNav_second_drop').click();
+        }
+    });
+}
+</script></div></div></div></div><div class="cms-layout-row" style="border-collapse: collapse; clear: both; display: table; border-spacing: 0; table-layout: auto; margin: 0 auto; width: 100.0%; "><div key="r1c0" class="cms-layout-column" style="display: table-cell; vertical-align: top;padding-left: 0;width: 100.0%; "><div section-id="141028" class="cms-section" style="padding: 0px; "><div style="margin: 0 auto; padding: 0;">     <div class="pageBanner mourningContent" style="background-image: url( /images/banner/關檢服務.jpg
+ );">
+          <div class="pageBanner-cont container_width">
+               <div class="pageBanner-text">
+                    <h1 tabindex='1' class="pageBanner-word 
+" data-pageName="入境/出境申報">-</h1>
+               </div>
+          </div>
+     </div>
+<div class="breadcrumb-div app_container_width">
+     <div class="breadcrumb mourningContent container_width">
+
+     </div>
+</div></div></div></div></div><div class="cms-layout-row" style="border-collapse: collapse; clear: both; display: table; border-spacing: 0; table-layout: auto; margin: 0 auto; width: 100.0%; min-height: 70vh;"><div key="r2c0" body="true" class="cms-layout-column" style="display: table-cell; vertical-align: top;padding-left: 0;width: 100.0%; "><div class="cms-layout" style=""><div class="cms-layout-row dbcolumn-flex-layout container_width" style="display: flex;
+justify-content: space-between;
+width:100%;
+margin:0 auto 70px;"><div key="r0c0" class="cms-layout-column dbcolumn-left-layout" style=""><div section-id="141068" class="cms-section" style="padding: 0px; "><div style="margin: 0 auto; padding: 0;"><script type="text/javascript">function getPreviewAlias(url) {
+  const params = new URLSearchParams(url.split('?')[1] || url);
+  return params.get('pageAlias');
+}
+
+function getPublicAlias(url) {
+  const match = url.match(/\/([^\/]+)\.html(?:\?.*|#.*|$)/);
+  return match ? match[1] : null;
+}
+
+function isPreviewPath() {
+  return window.location.pathname.includes('/preview/') ||window.location.pathname.includes('/admin/');
+}
+</script>
+<div class="left_menu">
+  <ul class="lmenu_list">
+            <li class="lmenu_first_item">
+          <a class="lmenu_first_head hasChild" tabindex="1"
+            target="_self" data-path="notice_passengers"  >旅客須知</a>
+        <ul class="lmenu_second_list">
+              <li class="lmenu_second_item" data-path="notice_passengers_item1">
+                <a href="/cn/notice_passengers_item1.html"
+                  target="_self">入境/出境申報</a>
+              </li>
+              <li class="lmenu_second_item" data-path="notice_passengers_item2">
+                <a href="/cn/notice_passengers_item2.html"
+                  target="_self">大額現金申報</a>
+              </li>
+              <li class="lmenu_second_item" data-path="notice_passengers_item3">
+                <a href="/cn/notice_passengers_item3.html"
+                  target="_self">供個人自用或消費之貨物表</a>
+              </li>
+              <li class="lmenu_second_item" data-path="notice_passengers_item4">
+                <a href="/cn/notice_passengers_item4.html"
+                  target="_self">客運口岸</a>
+              </li>
+              <li class="lmenu_second_item" data-path="notice_passengers_item5">
+                <a href="https://www.fsm.gov.mo/psp/cht/psp_imm_CheckpointRules.html"
+                  target="_self">出入境事務站使用規則</a>
+              </li>
+        </ul>
+      </li>
+        <li class="lmenu_first_item">
+          <a class="lmenu_first_head hasChild" tabindex="1"
+            target="_self" data-path="vehicle_clearance"  >車輛通關</a>
+        <ul class="lmenu_second_list">
+              <li class="lmenu_second_item" data-path="vehicle_clearance_item1">
+                <a href="/cn/vehicle_clearance_item1.html"
+                  target="_self">臨時出入境車輛</a>
+              </li>
+              <li class="lmenu_second_item" data-path="vehicle_clearance_item2">
+                <a href="/cn/vehicle_clearance_item2.html"
+                  target="_self">澳車北上</a>
+              </li>
+              <li class="lmenu_second_item" data-path="vehicle_clearance_item3">
+                <a href="/cn/vehicle_clearance_item3.html"
+                  target="_self">粵澳兩地牌車</a>
+              </li>
+              <li class="lmenu_second_item" data-path="vehicle_clearance_item4">
+                <a href="/cn/vehicle_clearance_item4.html"
+                  target="_self">橫琴單牌車</a>
+              </li>
+              <li class="lmenu_second_item" data-path="vehicle_clearance_item5">
+                <a href="/cn/vehicle_clearance_item5.html"
+                  target="_self">港澳跨境車</a>
+              </li>
+              <li class="lmenu_second_item" data-path="vehicle_clearance_item7">
+                <a href="/cn/vehicle_clearance_item7.html"
+                  target="_self">香港口岸自動化停車場</a>
+              </li>
+              <li class="lmenu_second_item" data-path="vehicle_clearance_item6">
+                <a href="/cn/vehicle_clearance_item6.html"
+                  target="_self">車輛邊境通行證網上服務</a>
+              </li>
+        </ul>
+      </li>
+        <li class="lmenu_first_item">
+          <a class="lmenu_first_head hasChild" tabindex="1"
+            target="_self" data-path="customs_declaration"  >報關清關</a>
+        <ul class="lmenu_second_list">
+              <li class="lmenu_second_item" data-path="customs_declaration_item1">
+                <a href="/cn/customs_declaration_item1.html"
+                  target="_self">對外貿易活動</a>
+              </li>
+              <li class="lmenu_second_item" data-path="customs_declaration_item2">
+                <a href="/cn/customs_declaration_item2.html"
+                  target="_self">受預先許可約束之貨物</a>
+              </li>
+              <li class="lmenu_second_item" data-path="customs_declaration_item13">
+                <a href="/cn/customs_declaration_item13.html"
+                  target="_self">進出口監管</a>
+              </li>
+              <li class="lmenu_second_item" data-path="customs_declaration_item3">
+                <a href="/cn/customs_declaration_item3.html"
+                  target="_self">受衛生檢疫或植物檢疫約束之貨物</a>
+              </li>
+              <li class="lmenu_second_item" data-path="customs_declaration_item4">
+                <a href="/cn/customs_declaration_item4.html"
+                  target="_self">簽發准照的權限實體</a>
+              </li>
+              <li class="lmenu_second_item" data-path="customs_declaration_item5">
+                <a href="/cn/customs_declaration_item5.html"
+                  target="_self">進口報關/清關程序</a>
+              </li>
+              <li class="lmenu_second_item" data-path="customs_declaration_item6">
+                <a href="/cn/customs_declaration_item6.html"
+                  target="_self">出口報關/清關程序</a>
+              </li>
+              <li class="lmenu_second_item" data-path="customs_declaration_item7">
+                <a href="/cn/customs_declaration_item7.html"
+                  target="_self">轉運報關/清關程序</a>
+              </li>
+              <li class="lmenu_second_item" data-path="customs_declaration_item8">
+                <a href="/cn/customs_declaration_item8.html"
+                  target="_self">郵寄</a>
+              </li>
+              <li class="lmenu_second_item" data-path="customs_declaration_item9">
+                <a href="/cn/customs_declaration_item9.html"
+                  target="_self">所需文件</a>
+              </li>
+              <li class="lmenu_second_item" data-path="customs_declaration_item10">
+                <a href="/cn/customs_declaration_item10.html"
+                  target="_self">報關表格</a>
+              </li>
+              <li class="lmenu_second_item" data-path="customs_declaration_item11">
+                <a href="/cn/customs_declaration_item11.html"
+                  target="_self">電子數據交換系統 (EDI)</a>
+              </li>
+              <li class="lmenu_second_item" data-path="customs_declaration_item12">
+                <a href="/cn/customs_declaration_item12.html"
+                  target="_self">貨運站</a>
+              </li>
+        </ul>
+      </li>
+        <li class="lmenu_first_item">
+          <a class="lmenu_first_head" tabindex="1"
+            target="_self" data-path="transfer_easy" href="/cn/transfer_easy.html"
+       >中轉易</a>
+      </li>
+        <li class="lmenu_first_item">
+          <a class="lmenu_first_head" tabindex="1"
+            target="_self" data-path="easy_customs_clearance" href="/cn/easy_customs_clearance.html"
+       >清關易</a>
+      </li>
+        <li class="lmenu_first_item">
+          <a class="lmenu_first_head" tabindex="1"
+            target="_self" data-path="customs_lock" href="/cn/customs_lock.html"
+       >跨境一鎖</a>
+      </li>
+        <li class="lmenu_first_item">
+          <a class="lmenu_first_head" tabindex="1"
+            target="_self" data-path="hong_kong_lock" href="/cn/hong_kong_lock.html"
+       >粵港澳三地一鎖計劃（港澳段）</a>
+      </li>
+        <li class="lmenu_first_item">
+          <a class="lmenu_first_head" tabindex="1"
+            target="_self" data-path="" href="https://eservice.customs.gov.mo/aeo/#/"
+       >澳門認可經濟營運商(AEO)</a>
+      </li>
+  </ul>
+</div>
+<script>
+  $(document).ready(function() {
+  let url = window.location.href;
+  // 初始化
+  var prevFlag = isPreviewPath();
+  var _cuerPageAlias = "";
+    if (prevFlag){
+    _cuerPageAlias = getPreviewAlias(url);
+  }else{
+    _cuerPageAlias = getPublicAlias(url);
+  }
+  $('.lmenu_second_item').each(function() {
+    var path = $(this).attr('data-path') || '';
+    if (path && path==_cuerPageAlias) {
+      $(this).find('a').addClass('active');
+      $(this).closest('.lmenu_first_item').find('.lmenu_second_list').show();
+      $(this).closest('.lmenu_first_item').find('.lmenu_first_head').addClass('active');
+    }
+  });
+
+  // 如果第二层没有找到匹配项，则尝试在第一层中寻找匹配项
+  if ($('.lmenu_first_head.active').length === 0) {
+    $('.lmenu_first_head').each(function() {
+      var path = $(this).attr('data-path') || '';
+      if (path && path==_cuerPageAlias) {
+        $(this).addClass('active');
+      }
+    });
+  }
+
+  // 点击一级菜单（带子菜单的）
+
+  $('.lmenu_first_head.hasChild').on('click', function(e) {
+    e.preventDefault();
+    
+    var $this = $(this);
+    var $parentItem = $this.closest('.lmenu_first_item');
+    var $submenu = $parentItem.find('.lmenu_second_list');
+
+    $('.lmenu_second_list').stop(true, false);
+    
+    if ($submenu.is(':visible')) {
+        setTimeout(() => {
+           $submenu.slideUp(300);
+        $this.removeClass('active');
+        }, 10);
+    } else {
+        $('.lmenu_second_list').slideUp(300);
+         setTimeout(() => {
+          $submenu.slideDown(300);
+ $('.lmenu_first_head').not($this).removeClass('active');
+        $this.addClass('active');
+        }, 10);
+       
+    }
+});
+});
+</script></div></div></div><div key="r0c1" class="cms-layout-column dbcolumn-right-layout page-main-area" style=""><div section-id="141106" class="cms-section" style="padding: 0px; "><div style="margin: 0 auto; padding: 0;"><div class="customs_declaration container_width">
+  <div class="content">
+      <!-- 只显示当前 key 对应的内容 -->
+  </div>
+</div>
+
+<script>
+// 构建文章列表（仅用于查找当前项）
+var article_list = [];
+      var article = {
+          key: "mgt550n3",
+          title: `入境/出境申報`,
+          releasedTime: "2025-10-16",
+          url: "#",
+          body: `<h2 class="common_article_title" jhenghei="" microsoft="" style="box-sizing: border-box; font-family: ">入境/出境申報</h2>
+
+<div class="card-content">出入境人士<span jhenghei="" microsoft="" style="font-family: ">如未依法向海關人員作出申報或作出虛假或不完整申報；或進口受預先許可制度約束之物品，而未領有有關准照，或進口/出口冒牌或侵犯版權的貨物，可被檢控，且有關物品將被充公。</span></div>
+ 
+
+<div class="card-content">
+<h4 jhenghei="" microsoft="" style="box-sizing: border-box; font-family: ">入境申報</h4>
+<span jhenghei="" microsoft="" style="font-family: ">一、所有入境澳門人士如攜帶以下物品，必須由《對外貿易法》第十一條所指外貿經營人申報，已履行稅務義務尤其是營業稅及消費稅等義務的自然人或法人辦理申報手續，在入境時選擇紅色通道，向海關關員提交所需文件作出申報：</span>
+
+<ol jhenghei="" microsoft="" style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; padding-left: 22px; font-family: ">
+	<li style="box-sizing: border-box;">受預先許可制度約束的貨物；(第<a href="http://bo.dsaj.gov.mo/bo/i/2021/52/despce_cn.asp#209" style="box-sizing: border-box; background: transparent; color: rgb(61, 61, 61); text-decoration-line: none;" target="_blank">209/2021號</a>、<a href="https://bo.dsaj.gov.mo/bo/i/2022/42/despce_cn.asp#188" style="box-sizing: border-box; background: transparent; color: rgb(61, 61, 61); text-decoration-line: none;" target="_blank">第188/2022號</a>、<a href="https://bo.dsaj.gov.mo/bo/i/2022/48/despce_cn.asp#208" style="box-sizing: border-box; background: transparent; color: rgb(61, 61, 61); text-decoration-line: none;" target="_blank">第208/2022號</a>及<a href="https://bo.dsaj.gov.mo/bo/i/2023/30/despce_cn.asp#110" style="box-sizing: border-box; background: transparent; color: rgb(61, 61, 61); text-decoration-line: none;" target="_blank">第110/2023號</a>行政長官批示附件二表B(進口表))</li>
+	<li style="box-sizing: border-box;">受衛生檢疫或植物檢疫約束的貨物；</li>
+	<li style="box-sizing: border-box;">受特別制度約束之貨物（如瀕危野生動植物）；</li>
+	<li style="box-sizing: border-box;">超出行政長官批示訂定“供個人自用或消費之貨物表”物品數量；</li>
+	<li style="box-sizing: border-box;">所涉及之貨物價值超過澳門元5000元，且不屬《對外貿易法》第十條第三款所指的情況。</li>
+</ol>
+<span jhenghei="" microsoft="" style="font-family: ">二、所有入境澳門人士如攜帶的現金或無記名可轉讓票據(</span>總值為等於或高於澳門元十二萬元的外幣<span jhenghei="" microsoft="" style="font-family: ">)，入境時選擇紅色通道，並如實填寫有關申報書向海關關員作出申報。</span><br jhenghei="" microsoft="" style="box-sizing: border-box; font-family: " />
+<br jhenghei="" microsoft="" style="box-sizing: border-box; font-family: " />
+<span jhenghei="" microsoft="" style="font-family: ">三、所有入境澳門人士如沒有攜帶任何上述受預先許可制度約束的貨物，或攜帶總值低於澳門元12萬元或等值的外幣的現金或無記名可轉讓票據，則可選擇綠色通道通關，無需向海關關員作出申報，但：</span>
+
+<ol jhenghei="" microsoft="" style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; padding-left: 22px; font-family: ">
+	<li style="box-sizing: border-box;">如被發現攜帶需作出申報的貨物，而未有作出申報或不完整申報，則可被起訴／罰款，而有關貨物亦會被充公。</li>
+	<li style="box-sizing: border-box;">如被發現攜帶總值為等於或高於澳門元十二萬元的外幣的現金或無記名可轉讓票據，而未有作出申報或不完整申報，則可被起訴／罰款，如涉及與犯罪有關，比如與清洗黑錢或資助恐怖主義有關，則可被要求接受具職權的刑事警察機關調查；</li>
+	<li style="box-sizing: border-box;">如被發現攜帶任何不法貨物，比如冒牌或侵權的貨物，則可被刑事檢控，而有關貨物亦會被充公。</li>
+</ol>
+</div>
+ 
+
+<div class="card-content">
+<h4 jhenghei="" microsoft="" style="box-sizing: border-box; font-family: ">出境申報</h4>
+<span jhenghei="" microsoft="" style="font-family: ">一、所有離澳人士如攜帶以下物品，應根據《對外貿易法》規定向海關關員作出申報：</span>
+
+<ol jhenghei="" microsoft="" style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; padding-left: 22px; font-family: ">
+	<li style="box-sizing: border-box;">受預先許可制度約束的貨物；(第<a href="http://bo.dsaj.gov.mo/bo/i/2021/52/despce_cn.asp#209" style="box-sizing: border-box; background: transparent; color: rgb(61, 61, 61); text-decoration-line: none;" target="_blank">209/2021號</a>、<a href="https://bo.dsaj.gov.mo/bo/i/2022/42/despce_cn.asp#188" style="box-sizing: border-box; background: transparent; color: rgb(61, 61, 61); text-decoration-line: none;" target="_blank">第188/2022號</a>及<a href="https://bo.dsaj.gov.mo/bo/i/2023/30/despce_cn.asp#110" style="box-sizing: border-box; background: transparent; color: rgb(61, 61, 61); text-decoration-line: none;" target="_blank">第110/2023號</a>行政長官批示附件二表A(出口表))</li>
+	<li style="box-sizing: border-box;">受特別制度約束之貨物（如瀕危野生動植物）；</li>
+	<li style="box-sizing: border-box;">所涉及之貨物價值超過澳門元5000元，且不屬《對外貿易法》第十條第三款所指的情況。</li>
+</ol>
+<br jhenghei="" microsoft="" style="box-sizing: border-box; font-family: " />
+<span jhenghei="" microsoft="" style="font-family: ">二、所有離澳人士如攜帶的現金或無記名可轉讓票據(</span>總值為等於或高於澳門元十二萬元的外幣<span jhenghei="" microsoft="" style="font-family: ">)，如被海關關員查問，應申報及如實填寫有關申報書。</span><br jhenghei="" microsoft="" style="box-sizing: border-box; font-family: " />
+<br jhenghei="" microsoft="" style="box-sizing: border-box; font-family: " />
+<span jhenghei="" microsoft="" style="font-family: ">倘有疑問可致電(查詢熱線：</span>28965001<span jhenghei="" microsoft="" style="font-family: ">)或透過電子郵件(info@customs.gov.mo)聯絡我們。</span></div>
+ `
+      };
+      article_list.push(article);
+      var article = {
+          key: "mgvnaocv",
+          title: `大額現金申報`,
+          releasedTime: "2025-10-18",
+          url: "/cn/notice_passengers_item2.html",
+          body: ``
+      };
+      article_list.push(article);
+      var article = {
+          key: "mgvnav06",
+          title: `供個人自用或消費之貨物表`,
+          releasedTime: "2025-10-18",
+          url: "#",
+          body: `<h2 class="common_article_title" jhenghei="" microsoft="" style="box-sizing: border-box; font-family: ">供個人自用或消費之貨物表</h2>
+
+<div class="card-content"><span jhenghei="" microsoft="" style="font-family: ">入境旅客可攜帶不超過“供個人自用或消費之貨物表”( </span><a href="http://bo.dsaj.gov.mo/bo/i/2021/52/despce_cn.asp#209" jhenghei="" microsoft="" style="box-sizing: border-box; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(61, 61, 61); text-decoration-line: none; font-family: ">第209/2021號及</a><a href="https://bo.dsaj.gov.mo/bo/i/2022/48/despce_cn.asp#208" jhenghei="" microsoft="" style="box-sizing: border-box; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(61, 61, 61); text-decoration-line: none; font-family: ">第208/2022號</a><span jhenghei="" microsoft="" style="font-family: ">行政長官批示附件一 )所列數量的物品，以供其本人自用，而無須申報。</span></div>
+ 
+
+<div class="card-content">
+<h4 jhenghei="" microsoft="" style="box-sizing: border-box; font-family: ">每人每日可攜帶下列數量物品 (詳細內容及規定請參閱<a href="http://bo.dsaj.gov.mo/bo/i/2021/52/despce_cn.asp#209" style="box-sizing: border-box; background: transparent; color: rgb(61, 61, 61); text-decoration-line: none;" target="_blank">第209/2021號及</a><a href="https://bo.dsaj.gov.mo/bo/i/2022/48/despce_cn.asp#208" style="box-sizing: border-box; background: transparent; color: rgb(61, 61, 61); text-decoration-line: none;" target="_blank">第208/2022號</a>行政長官批示附件一 )：</h4>
+
+<ol jhenghei="" microsoft="" style="box-sizing: border-box; margin-top: 0px; margin-bottom: 10px; padding-left: 22px; font-family: ">
+	<li style="box-sizing: border-box;">乳製品 、禽蛋 (不包括鮮禽蛋)、天然蜜；活植物、菌類；鱗莖；食用塊莖類蔬菜 (不包括有葉蔬菜)；食用果實；種植用種子；甘蔗；脂肪類：豬脂肪 (包括豬油) 及家禽脂肪；冰淇淋及食用冰；供零售用之貓狗食品；嬰兒配方奶粉及液體奶；幼童配方奶粉；其他奶粉；等等。</li>
+	<li style="box-sizing: border-box;">19枝香煙</li>
+	<li style="box-sizing: border-box;">1枝雪茄(每枝重量少於3克)</li>
+	<li style="box-sizing: border-box;">25克煙葉；</li>
+	<li style="box-sizing: border-box;">一公升酒精濃度(以容量計)超過百分之三十的飲料</li>
+	<li style="box-sizing: border-box;">不超出30日治療量之藥物(<a href="https://bo.dsaj.gov.mo/bo/i/99/29/declei34_cn.asp" jhenghei="" microsoft="" style="box-sizing: border-box; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(61, 61, 61); text-decoration-line: none; font-family: ">第34/99/M號法令</a>第九條所指的麻醉藥品及精神藥物)</li>
+	<li style="box-sizing: border-box;">不超出90日治療量之藥物(其他藥物)</li>
+</ol>
+
+<div class="warning-content">
+<h4 jhenghei="" microsoft="" style="box-sizing: border-box; font-family: "> 注意：</h4>
+<span jhenghei="" microsoft="" style="color: rgb(185, 74, 72); font-family: ">第 1 項：每人每日攜帶總數之重量不得超過5千克。</span><br jhenghei="" microsoft="" style="box-sizing: border-box; color: rgb(185, 74, 72); font-family: " />
+<span jhenghei="" microsoft="" style="color: rgb(185, 74, 72); font-family: ">第 2~4 項：每人每日攜帶總數之重量不得超過25克。</span></div>
+</div>
+ 
+
+<h2 jhenghei="" microsoft="" style="box-sizing: border-box; font-family: "><br />
+自橫琴口岸澳方口岸區進口的供個人自用或消費的貨物表</h2>
+ 
+
+<div class="card-content"><span jhenghei="" microsoft="" style="font-family: ">根據</span><a href="https://bo.dsaj.gov.mo/bo/i/2022/48/despce_cn.asp#208" jhenghei="" microsoft="" style="box-sizing: border-box; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial; color: rgb(61, 61, 61); text-decoration-line: none; font-family: ">第32/2024號</a><span jhenghei="" microsoft="" style="font-family: ">行政長官批示，在橫琴粵澳深度合作區學習、就業、創業或生活，且經該區具權限機關批准納入“允許澳門居民攜帶相關動植物產品進入橫琴粵澳深度合作區的適用人員名單庫”的澳門特別行政區居民，自橫琴口岸澳方口岸區進口供個人自用或消費的貨物。</span></div>
+ 
+
+<div class="card-content">
+<table border="1" jhenghei="" microsoft="" style="border-collapse: collapse; border-spacing: 0px; max-width: 100%; font-family: ">
+	<tbody style="box-sizing: border-box;">
+		<tr style="box-sizing: border-box;">
+			<th style="box-sizing: border-box; text-align: left; width: 472px;">貨物名稱</th>
+			<th style="box-sizing: border-box; text-align: left;">數量上限</th>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box;">熟的肉類（含臟器類）及其製品</td>
+			<td style="box-sizing: border-box;">1千克*</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box;">有商業包裝的動物源性乳及乳製品*</td>
+			<td style="box-sizing: border-box;">3千克*</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box;">熟蛋及其製品（鮮蛋除外）</td>
+			<td style="box-sizing: border-box;">1千克*</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box;">各類新鮮水果，以及有商業包裝經過加工的鮮食水果沙拉</td>
+			<td style="box-sizing: border-box;">1千克*</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box;">各類新鮮蔬菜，以及有商業包裝經過加工的鮮食蔬菜沙拉</td>
+			<td style="box-sizing: border-box;">1千克*</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box;">各類新鮮食菌，以及有商業包裝經過加工的鮮食菌菇沙拉</td>
+			<td style="box-sizing: border-box;">1千克*</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box;">各類鮮花組合</td>
+			<td style="box-sizing: border-box;">1千克*</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box;">活動物：犬或貓</td>
+			<td style="box-sizing: border-box;">每次僅限攜帶一隻犬或貓**</td>
+		</tr>
+	</tbody>
+</table>
+
+<h4 jhenghei="" microsoft="" style="box-sizing: border-box; font-family: ">注意：</h4>
+
+<p jhenghei="" microsoft="" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: ">*供自用或消費的貨物之總重量不得超過5千克，且每人每日僅限攜帶一次。</p>
+
+<p jhenghei="" microsoft="" style="box-sizing: border-box; margin: 0px 0px 10px; font-family: ">**有關動物須由其所有人攜帶，且具備經市政署識別的電子植入物、由市政署簽發的“犬貓國際防疫注射證書”及有效“往返深合區簽注”。</p>
+</div>
+ `
+      };
+      article_list.push(article);
+      var article = {
+          key: "mgvnb2yq",
+          title: `客運口岸`,
+          releasedTime: "2025-10-18",
+          url: "/cn/notice_passengers_item4.html",
+          body: `<div class="panel-heading" jhenghei="" microsoft="" style="box-sizing: border-box; padding: 10px 15px; border-bottom: 1px solid rgb(221, 221, 221); border-top-right-radius: 0px; border-top-left-radius: 0px; background: linear-gradient(135deg, rgb(224, 240, 252) 0%, rgba(16, 104, 181, 0.3) 100%); border-top-color: rgb(221, 221, 221); border-right-color: rgb(221, 221, 221); border-left-color: rgb(221, 221, 221); font-family: ">
+<h3 class="panel-title" style="box-sizing: border-box; font-family: inherit; font-weight: bold; line-height: 1.1; color: inherit; margin: 0px; font-size: 16px; text-rendering: optimizelegibility;">客運口岸</h3>
+</div>
+
+<table style="border-collapse: collapse; border-spacing: 0px; background-color: transparent; width: 100%; margin-bottom: 20px;">
+	<thead style="box-sizing: border-box;">
+		<tr style="box-sizing: border-box;">
+			<th style="box-sizing: border-box; text-align: left; border-top: 0px; padding: 8px; line-height: 1.3; vertical-align: bottom; border-bottom: 2px solid rgb(221, 221, 221);">地點</th>
+			<th style="box-sizing: border-box; text-align: left; border-top: 0px; padding: 8px; line-height: 1.3; vertical-align: bottom; border-bottom: 2px solid rgb(221, 221, 221);">地址</th>
+			<th style="box-sizing: border-box; text-align: left; border-top: 0px; padding: 8px; line-height: 1.3; vertical-align: bottom; border-bottom: 2px solid rgb(221, 221, 221);">開放時間</th>
+			<th style="box-sizing: border-box; text-align: left; border-top: 0px; padding: 8px; line-height: 1.3; vertical-align: bottom; border-bottom: 2px solid rgb(221, 221, 221);">口岸海關站<br style="box-sizing: border-box;" />
+			查詢電話</th>
+			<th style="box-sizing: border-box; text-align: left; border-top: 0px; padding: 8px; line-height: 1.3; vertical-align: bottom; border-bottom: 2px solid rgb(221, 221, 221);">口岸海關站<br style="box-sizing: border-box;" />
+			傳真</th>
+		</tr>
+	</thead>
+	<tbody style="box-sizing: border-box;">
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">外港客運碼頭 (海)</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">海港前地外港客運碼頭</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">24小時</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">84900231</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">28727257</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">內港客運碼頭 (海)</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">內港11A號碼頭</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">07H00 - 22H00</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">84900341</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">28938308</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">氹仔客運碼頭 (海)</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">氹仔北安港澳碼頭</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">24小時</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">84911731</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">28851822</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">關閘口岸 (陸)</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">關閘邊檢大樓</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">06H00 - 01H00</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">84900515</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">28438419</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">珠澳跨境工業區口岸 (陸)</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">青洲珠澳跨境工業區邊檢大樓</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">07H00 - 24H00</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">84900694</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">28270394</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">橫琴口岸澳門口岸區海關站 (陸)</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">橫琴口岸澳門口岸區大樓澳門海關</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">24小時</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">84911631</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">28870166</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">澳門國際機場 (空)</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">氹仔澳門國際機場客運大樓</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">24小時</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">84911431</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">28861192</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">港珠澳大橋澳門海關站 (陸)</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">港珠澳大橋澳門邊檢大樓</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">24小時</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">84912338/84912339</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">28963807</td>
+		</tr>
+		<tr style="box-sizing: border-box;">
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">青茂口岸澳門海關站 (陸)</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">青茂口岸澳門邊檢大樓</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">24小時</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">84900833/84900832</td>
+			<td style="box-sizing: border-box; border-top: 1px solid rgb(221, 221, 221); padding: 8px; line-height: 1.3; vertical-align: top;">28723760</td>
+		</tr>
+	</tbody>
+</table>
+`
+      };
+      article_list.push(article);
+
+// 找到当前 key 对应的文章
+var currentItem = article_list.find(item => item.key === key);
+
+if (currentItem) {
+  // 只渲染当前项的内容
+  var contentHtml = `<div tabindex='1' data-key="`+currentItem.key+`" class="content-item">`
+  +currentItem.body+`</div>`;
+  $(".content").html(contentHtml);
+
+  // 处理表格滚动容器和链接 tabindex
+  $('.content-item table').wrap('<div class="table-scroll-container"><div class="scroll-content"></div></div>');
+  $('.content-item a').attr('tabindex', 1);
+}
+</script></div></div></div></div></div></div></div><div class="cms-layout-row" style="border-collapse: collapse; clear: both; display: table; border-spacing: 0; table-layout: auto; margin: 0 auto; width: 100.0%; "><div key="r3c0" class="cms-layout-column" style="display: table-cell; vertical-align: top;padding-left: 0;width: 100.0%; "><div section-id="141027" class="cms-section" style="padding: 0px; "><div style="margin: 0 auto; padding: 0;"><footer class="footer">
+    <div class="footer-container">
+        <div class="footer-top">
+            <!-- 左側：聯繫信息和版權 -->
+            <div class="footer-left">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <span>郵箱：info@customs.gov.mo</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <span>地址：氹仔北安碼頭大馬路北安碼頭三巷澳門海關總部大樓</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 右側：社交媒體和導航 -->
+            <div class="footer-right">
+                <img tabindex="1" src="/images/index/tel_1_zh_TW.png" alt="舉報及投訴熱綫">
+                <img tabindex="1" src="/images/index/tel_2_zh_TW.png" alt="查詢熱綫">
+                <img class="bottom_show_qr clickBtn" tabindex="1" src="/images/index/qrcode_3_zh_TW.png" alt="應用程式">
+                <img class="bottom_show_app clickBtn" tabindex="1" src="/images/index/app_1_zh_TW.png" alt="海關APP">
+            </div>
+        </div>
+        <!-- 底部-隱私政策，最後修訂時間 -->
+        <div class="footer-last">
+            <div class="copyright">
+                <span>© 2025 澳門海關 版權所有</span>
+                <span class="separator">|</span>
+                <a tabindex="1" href="/cn/privacy.html"
+                    class="footer-link">使用及隱私條款</a>
+            </div>
+            <div class="footer-meta">
+                <span>最後修訂日期：2026年02月02日</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    $('.bottom_show_qr').click(()=>{
+showModal("",`<img tabindex="1" class="weChat_qrcode" style="width:100%;" src="/photo2/wechat_qrcode2_big.jpg"  alt="海關APP">`);
+})
+$('.bottom_show_app').click(()=>{
+ window.location.href = `https://www.customs.gov.mo/uploads/sa-app.apk`
+})
+</script></div></div></div></div></div></body>
+</html>

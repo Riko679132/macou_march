@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>财政法规管理系统</title>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<script src="../../../start/layui/layui.js"></script> 
+	<link rel="icon" href="../../style/images/titleIcon.png">
+	<link rel="stylesheet" href="../../style/admin.css" media="all">
+	<link rel="stylesheet" href="../../style/common.css" media="all">
+</head>
+<script>
+function doPrint() { 
+bdhtml=window.document.body.innerHTML; 
+sprnstr="<!--startprint-->"; //开始打印标识字符串有17个字符
+eprnstr="<!--endprint-->"; //结束打印标识字符串
+prnhtml=bdhtml.substr(bdhtml.indexOf(sprnstr)+17); //从开始打印标识之后的内容
+prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr)); //截取开始标识和结束标识之间的内容
+window.document.body.innerHTML=prnhtml; //把需要打印的指定内容赋给body.innerHTML
+window.print(); //调用浏览器的打印功能打印指定区域
+window.document.body.innerHTML=bdhtml;//重新给页面内容赋值；
+}
+</script>
+<body style="overflow: auto;">
+<div class="publicForms_top">
+        <div class="publicForms_toplogo">
+                <h1 ><img src="/ui/src/style/images/titleIcon.png" />
+                     财政部法规库
+                </h1>
+        </div>
+        <div class="download-but">
+            <a id="a" style="cursor:pointer;text-decoration:none;">下载文字版</a>
+            <a id="imgA" style="cursor:pointer;text-decoration:none;">下载图片版</a>
+        </div>
+    </div>
+<div class="publicForms_box">
+    <div class="publicForms_withinbox">
+        <p class="publicForms_title" >国务院关税税则委员会关于公布《进境物品关税、增值税、消费税征收办法》的公告</p>
+
+                <p class="publicForms_time" >（税委会公告2024年第11号）</p>
+
+        <div class="publicForms_sign">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="table_title">【时 效 性】</td>
+                        <td class="table_content">
+                        	 有效
+                        </td>
+                        <td class="table_title">【颁布日期】</td>
+                        <td class="table_content">2024年11月29日</td>
+                    </tr>
+                    <tr>
+                        <td>【颁布单位】</td>
+                        <td>关税司（国务院关税税则委员会办公室）</td>
+                        <td>【实施日期】</td>
+                        <td>2024年12月01日</td>
+                    </tr>
+                    <tr>
+                        <td>【法规层次】</td>
+                        <td>财政部规范性文件</td>
+                        <td>【文　　号】</td>
+                        <td>税委会公告2024年第11号</td>
+                    </tr>
+                    <tr>
+                        <td>【首选类别】</td>
+                        <td></td>
+                        <td>【关 键 字】</td>
+                        <td>进境物品</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="publicForms_operation">
+            <!--<i class="layui-icon layui-icon-edit">摘抄</i>
+            <i class="layui-icon layui-icon-print">打印</i>
+            <i class="layui-icon layui-icon-form">生成题注</i>-->
+            <i class="layui-icon layui-icon-print" onClick="doPrint()">全文打印</i>
+            <i class="layui-icon layui-icon-export" id="word"><a id="a" style="text-decoration: none;color:inherit;">导出WORD</a></i> 
+            <i class="layui-icon layui-icon-close-fill" onclick="javascript:window.close()">关闭</i>
+            【字体：<span id="large">大</span><span id="secondary">中</span><span id="small">小</span>】
+        </div>
+        <!--startprint-->
+        <div class="publicForms_text">
+        <p style="text-align: justify; font-family: 仿宋_GB2312; font-size: 21px; line-height: 1.5; margin-bottom: 5px; text-indent: 2em;"><span style="font-family: 仿宋_GB2312;font-size:21px;line-height: 1.5;margin-bottom: 5px;">根据《中华人民共和国关税法》第五条</span><span style="font-family: 仿宋_GB2312;font-size:21px;line-height: 1.5;margin-bottom: 5px;">规定，经国务院同意，现</span><span style="font-family: 仿宋_GB2312;font-size:21px;line-height: 1.5;margin-bottom: 5px;"><span style="font-family:宋体;font-family: 仿宋_GB2312;font-size:21px;line-height: 1.5;margin-bottom: 5px;">公</span></span><span style="font-family: 仿宋_GB2312;font-size:21px;line-height: 1.5;margin-bottom: 5px;">布《进境物品关税、增值税、消费税征收办法》，自</span><span style="font-family: 仿宋_GB2312;font-size:21px;line-height: 1.5;margin-bottom: 5px;"><span style="font-family:宋体;font-family: 仿宋_GB2312;font-size:21px;line-height: 1.5;margin-bottom: 5px;">2024年12月1日起施行。</span></span></p><p style="text-align: justify; font-family: 仿宋_GB2312; font-size: 21px; line-height: 1.5; margin-bottom: 5px; text-indent: 2em;"><span style="font-family: 仿宋_GB2312;font-size:21px;line-height: 1.5;margin-bottom: 5px;">特此公告。</span></p><p style="text-align: justify; font-family: 仿宋_GB2312; font-size: 21px; line-height: 1.5; margin-bottom: 5px; text-indent: 2em;"><span style="font-family: 仿宋_GB2312;font-size:21px;line-height: 1.5;margin-bottom: 5px;">附</span><span style="font-family: 仿宋_GB2312;font-size:21px;line-height: 1.5;margin-bottom: 5px;"><span style="font-family:宋体;font-family: 仿宋_GB2312;font-size:21px;line-height: 1.5;margin-bottom: 5px;">件</span></span><span style="font-family: 仿宋_GB2312;font-size:21px;line-height: 1.5;margin-bottom: 5px;">：进境物品关税、增值税、消费税征收办法</span></p><p style="text-align: right; font-family: 仿宋_GB2312; font-size: 21px; line-height: 1.5; margin-bottom: 5px; text-indent: 0em;">国务院关税税则委员会</p><p style="text-align: right; font-family: 仿宋_GB2312; font-size: 21px; line-height: 1.5; margin-bottom: 5px; text-indent: 0em;">2024年11月29日</p>
+        </div>
+        <!--endprint-->
+        <div class="publicForms_enclosure" id="xgfjDiv">
+            <div class="publicForms_enclosure_title">相关附件：</div>
+            <div class="publicForms_enclosure_content" id="contentFile">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="publicForms_bottom">
+    <div class="publicForms_bottomlogo">
+            <h1>财政部发布</h1>
+    </div>
+</div>
+<style>
+    *{margin: 0; padding: 0;}
+
+    .publicForms_text p {
+        text-indent: 0em
+    }
+</style>
+</body>
+<script>
+layui.config({
+	base: '../../../src/controller/law_surve/' //指定项目路径，本地开发用 src，线上用 dist
+	,version:  new Date().getTime()
+}).use('publicForms');
+</script>

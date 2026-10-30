@@ -1,0 +1,17 @@
+# 密钥与本地数据，禁止提交
+config.yaml
+data/*.sqlite
+data/*.sqlite-journal
+data/backups/
+logs/
+__pycache__/
+*.pyc
+
+# 本地环境与缓存
+.venv/
+tools/.venv/
+.pytest_cache/
+.mypy_cache/
+*.log
+.DS_Store
+Thumbs.db
