@@ -51,6 +51,8 @@ STR = {
         "scan_tab": "实时扫码",
         "upload_label": "选择物品或配料表照片",
         "scan_label": "用摄像头扫描物品或配料表",
+        "camera_toggle": "启用摄像头",
+        "camera_off_hint": "摄像头已关闭；需要扫码时再打开。",
         "ocr_ok": "已识别文字并填入下方输入框。",
         "ocr_none": "未识别到文字，请调整角度或改用文本输入。",
         "ocr_noengine": "当前环境未启用 OCR，请改用文本输入。",
@@ -97,6 +99,8 @@ STR = {
         "scan_tab": "Live scan",
         "upload_label": "Choose a photo of the item or ingredient label",
         "scan_label": "Scan the item or ingredient label with camera",
+        "camera_toggle": "Enable camera",
+        "camera_off_hint": "Camera is off. Turn it on to scan.",
         "ocr_ok": "Recognized the text and filled it into the box below.",
         "ocr_none": "No text recognized. Try again or type it manually.",
         "ocr_noengine": "OCR is not available here; please type instead.",
@@ -473,9 +477,13 @@ with col_up:
         ingest_image(uploaded.getvalue(), t)
 with col_scan:
     st.caption(t["scan_tab"])
-    shot = st.camera_input(t["scan_label"], label_visibility="collapsed")
-    if shot is not None:
-        ingest_image(shot.getvalue(), t)
+    cam_on = st.toggle(t["camera_toggle"], value=False, key="camera_on")
+    if cam_on:
+        shot = st.camera_input(t["scan_label"], label_visibility="collapsed")
+        if shot is not None:
+            ingest_image(shot.getvalue(), t)
+    else:
+        st.caption(t["camera_off_hint"])
 
 localize_native(lang)
 

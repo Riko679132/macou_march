@@ -256,6 +256,57 @@ def high_value_hint(text: str) -> Optional[str]:
     return "yellow"
 
 
+# ---------------------------------------------------------------------------
+# 加工食品兜底：有配料表且无肉类/生鲜/种子等违禁成分 → 绿（不被坚果/蛋奶/致敏提示误判）
+# ---------------------------------------------------------------------------
+PROCESSED_FOOD_MARKERS = (
+    "配料", "成份", "成分", "ingredient", "ingredients", "净重", "净含量", "保质期",
+    "生产日期", "致敏", "过敏原", "饼干", "薄脆", "曲奇", "薯片", "巧克力", "糖果",
+    "面包", "蛋糕", "糕点", "派", "酥", "脆", "饮料", "罐头", "果脯", "蜜饯",
+    "坚果制品", "调味", "生产此产品", "厂房",
+)
+PROHIBITED_INGREDIENTS = (
+    "肉松", "肉干", "火腿", "香肠", "培根", "牛肉", "猪肉", "鸡肉", "鸭肉", "羊肉",
+    "鱼肉", "鱼干", "鱼糜", "虾", "蟹", "活体", "活动物", "新鲜水果", "新鲜蔬菜",
+    "种子", "种苗", "苗木", "燕窝",
+)
+_NEG_PREFIX = ("不含", "不含有", "无", "没有", "零", "未使用", "不含任何")
+_FLAVOR_SUFFIX = ("味", "风味", "香精", "调味")
+
+PROCESSED_FOOD_REASON = ("经核实配料表，该商品为普通加工食品，配料中不含肉类、生鲜果蔬、"
+                         "种子等禁止或受限成分，可正常携带。")
+PROCESSED_FOOD_SUGGESTION = "可正常携带；如海关查验，出示包装配料表即可。"
+
+
+def has_prohibited_ingredient(text: str) -> bool:
+    n = to_simplified(text)
+    for kw in PROHIBITED_INGREDIENTS:
+        start = 0
+        while True:
+            i = n.find(kw, start)
+            if i < 0:
+                break
+            pre = n[max(0, i - 6):i]
+            post = n[i + len(kw):i + len(kw) + 3]
+            if any(p in pre for p in _NEG_PREFIX):
+                start = i + len(kw)
+                continue
+            if any(post.startswith(f) for f in _FLAVOR_SUFFIX):
+                start = i + len(kw)
+                continue
+            return True
+    return False
+
+
+def processed_food_hint(text: str) -> Optional[str]:
+    n = to_simplified(text).lower()
+    if not any(mk.lower() in n for mk in PROCESSED_FOOD_MARKERS):
+        return None
+    if has_prohibited_ingredient(n):
+        return None
+    return "green"
+
+
 # 具体品牌特征词：命中且本地无配料时，尝试外部查询
 BRAND_KEYWORDS = ("奥利奥", "乐事", "士力架", "德芙", "趣多多", "好丽友", "康师傅", "统一",
                   "旺旺", "徐福记", "雀巢", "费列罗", "好时", "大白兔", "卫龙", "三只松鼠",
@@ -836,6 +887,10 @@ SYSTEM_PROMPT_TEMPLATE = """你是「澳门绿色通关与碳足迹评估系统�
 4. 若判 yellow，reason 必须严格使用以下模板：
    "【需向海关申报】该物品属于高价值物品/超出合理自用数量。如果属于以下情况可免税放行：1. 确属个人自用旧物（需提供购买凭证或使用痕迹）；2. 总价值未超过5000元免税额度。如无法提供证明，请主动走红色通道申报补税，否则可能面临罚款。"
 
+【加工食品判定】若提供了配料表/成份，且为普通加工食品（饼干、薄脆、糕点、巧克力、薯片等），
+即使含坚果、蛋、奶、麸质或"致敏物质提示"，也不得据此判 red；只有配料中实际含有肉类、
+生鲜果蔬、种子、活体动植物等才判 red。配料清晰且无上述违禁成分 → green，reason 写明"经核实配料表"。
+
 【最高优先级·合规判定顺序】你是严谨的海关合规专家，判定必须遵循以下顺序：
 1. 若用户输入的是具体品牌商品（如奥利奥、德芙），先检查【参考知识·商品配料表】是否提供了
    该商品的真实配料表或搜索摘要。
@@ -1248,6 +1303,18 @@ def decide(user_input: str, cfg: Dict[str, Any], kb: KnowledgeBase,
             notes = []
             result["notes"] = notes
         notes.append("status_overridden_by_direction_produce_rule")
+
+    # 加工食品兜底：有配料表且不含肉类/生鲜/种子等 → green（避免坚果/蛋奶/致敏提示误判）
+    pf = processed_food_hint(user_input)
+    if pf and result.get("status") != pf:
+        result["status"] = pf
+        result["reason"] = PROCESSED_FOOD_REASON
+        result["suggestion"] = PROCESSED_FOOD_SUGGESTION
+        notes = result.get("notes")
+        if not isinstance(notes, list):
+            notes = []
+            result["notes"] = notes
+        notes.append("status_overridden_by_processed_food_rule")
 
     # 高价值物品审查（举证倒置）：绝不直接 green；全新/超量→red，其余→yellow
     hv = high_value_hint(user_input)
